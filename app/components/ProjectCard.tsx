@@ -29,7 +29,7 @@ export default function ProjectCard({
 
   return (
     <article
-      className="group relative flex flex-col justify-between p-8 rounded-[2rem] bg-zinc-900/40 border border-white/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/10 min-h-[430px] backdrop-blur-sm cursor-pointer"
+      className="project-card group relative flex flex-col justify-between p-8 rounded-[2rem] bg-zinc-900/40 border border-white/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/10 min-h-[430px] backdrop-blur-sm cursor-pointer"
       onClick={goToDetail}
       onKeyDown={(event) => {
         if (event.key === 'Enter' || event.key === ' ') {
@@ -53,7 +53,7 @@ export default function ProjectCard({
               src={coverImage}
               alt={`ภาพตัวอย่างโปรเจกต์ ${title}`}
               fill
-              className="object-cover"
+              className="project-cover object-cover"
             />
           </div>
         ) : null}
@@ -75,7 +75,7 @@ export default function ProjectCard({
       <div className="relative z-10 mt-auto pt-6">
         <div className="flex flex-wrap gap-2 mb-5">
           {tags.map((tag) => (
-            <span key={tag} className="px-4 py-1.5 text-xs font-medium text-zinc-300 bg-white/5 border border-white/5 rounded-full group-hover:border-white/10 transition-colors">
+            <span key={tag} className="tag-pop px-4 py-1.5 text-xs font-medium text-zinc-300 bg-white/5 border border-white/5 rounded-full group-hover:border-white/10 transition-colors">
               {tag}
             </span>
           ))}
@@ -85,7 +85,7 @@ export default function ProjectCard({
           <Link
             href={detailUrl}
             onClick={(event) => event.stopPropagation()}
-            className="px-4 py-2 rounded-xl bg-white text-black text-sm font-semibold hover:bg-zinc-200 transition-colors"
+            className="cta-button px-4 py-2 rounded-xl bg-white text-black text-sm font-semibold hover:bg-zinc-200 transition-colors"
           >
             ดูรายละเอียด
           </Link>
@@ -95,7 +95,7 @@ export default function ProjectCard({
               target="_blank"
               rel="noopener noreferrer"
               onClick={(event) => event.stopPropagation()}
-              className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-sm font-semibold hover:bg-white/10 transition-colors"
+              className="chip-hover px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-sm font-semibold hover:bg-white/10 transition-colors"
             >
               ชมโปรเจกต์จริง
             </a>
