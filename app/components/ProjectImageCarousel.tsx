@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { createPortal } from 'react-dom';
 
 interface ProjectImageCarouselProps {
   images: string[];
@@ -11,6 +12,7 @@ interface ProjectImageCarouselProps {
 export default function ProjectImageCarousel({ images, title }: ProjectImageCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const canUseDOM = typeof window !== 'undefined';
 
   useEffect(() => {
     if (images.length <= 1 || isLightboxOpen) return;
@@ -34,6 +36,19 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [images.length, isLightboxOpen]);
+
+  useEffect(() => {
+    if (!canUseDOM) return;
+    if (!isLightboxOpen) return;
+
+    const { style } = document.body;
+    const prevOverflow = style.overflow;
+    style.overflow = 'hidden';
+
+    return () => {
+      style.overflow = prevOverflow;
+    };
+  }, [canUseDOM, isLightboxOpen]);
 
   const goPrev = () => {
     setActiveIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
@@ -93,9 +108,10 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
         ))}
       </div>
 
-      {isLightboxOpen ? (
+      {canUseDOM && isLightboxOpen
+        ? createPortal(
         <div
-          className="fixed inset-0 z-50 bg-black/90 p-4 md:p-8"
+          className="fixed inset-0 z-[9999] bg-black/90 p-4 md:p-8"
           onClick={() => setIsLightboxOpen(false)}
           role="dialog"
           aria-modal="true"
@@ -107,7 +123,7 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
               event.stopPropagation();
               setIsLightboxOpen(false);
             }}
-            className="absolute top-3 right-3 z-30 h-12 w-12 rounded-full bg-white/10 border border-white/20 text-white text-2xl leading-none hover:bg-white/20 transition-colors"
+            className="absolute top-3 right-3 z-[10000] h-12 w-12 rounded-full bg-white/10 border border-white/20 text-white text-2xl leading-none hover:bg-white/20 transition-colors"
             aria-label="ปิดรูป"
           >
             ×
@@ -129,7 +145,10 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
 
             <button
               type="button"
-              onClick={goPrev}
+              onClick={(event) => {
+                event.stopPropagation();
+                goPrev();
+              }}
               className="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 h-11 w-11 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-colors"
               aria-label="รูปก่อนหน้า"
             >
@@ -137,15 +156,20 @@ export default function ProjectImageCarousel({ images, title }: ProjectImageCaro
             </button>
             <button
               type="button"
-              onClick={goNext}
+              onClick={(event) => {
+                event.stopPropagation();
+                goNext();
+              }}
               className="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 h-11 w-11 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-colors"
               aria-label="รูปถัดไป"
             >
               ›
             </button>
           </div>
-        </div>
-      ) : null}
+        </div>,
+        document.body
+      )
+        : null}
     </div>
   );
 }
