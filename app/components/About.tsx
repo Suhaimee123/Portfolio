@@ -41,8 +41,7 @@ export default function About() {
             </div>
             <h3 className="text-xl font-bold mb-4 text-white">จุดแข็งหลัก</h3>
             <p className="text-zinc-400 leading-relaxed">
-              เชี่ยวชาญการออกแบบระบบที่ขยายได้ การแก้ปัญหา production incident งานข้อมูลแบบ real-time
-              และการ deploy แบบ cloud-native ด้วย CI/CD เพื่อการส่งมอบซอฟต์แวร์ที่มีความเสถียร
+              ออกแบบระบบที่รองรับการขยายตัว แก้ปัญหา production incident จัดการงานข้อมูลแบบ real-time และ deploy แบบ cloud-native เพื่อให้มั่นใจในความเสถียรของซอฟต์แวร์
             </p>
           </div>
         </div>
