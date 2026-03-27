@@ -33,9 +33,7 @@ export default function Hero() {
         </h2>
 
         <p className="text-base md:text-xl text-zinc-300 max-w-3xl mb-10 leading-relaxed">
-          Full-stack Developer ที่ทำงานร่วมกับทีมในการพัฒนาเว็บแอปพลิเคชันที่ขยายระบบได้
-          และระบบ cloud-native มีประสบการณ์ร่วมพัฒนาระบบที่รองรับโหลดสูง
-          (ผู้ใช้พร้อมกันมากกว่า 10,000 คน) และแพลตฟอร์มที่มีผู้ใช้งานรวมมากกว่า 1 ล้านคน
+          Software Developer (Frontend) ที่มีประสบการณ์พัฒนา Web Application ในระบบขนาดใหญ่ (Enterprise Scale) โดยมีส่วนร่วมในการพัฒนาระบบลงทะเบียนที่รองรับผู้ใช้งานพร้อมกันกว่า 10,000 คน และดูแลระบบที่มีฐานผู้ใช้รวมกว่า 1 ล้านคน เน้นการสร้าง UI ที่ใช้งานง่ายและมีประสิทธิภาพ ควบคู่ไปกับการทำงานร่วมกับทีม Backend และ DevOps เพื่อให้การส่งมอบฟีเจอร์เป็นไปอย่างรวดเร็วและมีเสถียรภาพ
         </p>
 
         <div className="flex flex-wrap justify-center gap-3 mb-10 text-sm md:text-base">
