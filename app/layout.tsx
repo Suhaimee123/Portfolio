@@ -9,7 +9,7 @@ const anuphan = Anuphan({
 });
 
 export const metadata: Metadata = {
-  title: 'SUHAIMEE KAJE | นักพัฒนาซอฟต์แวร์',
+  title: 'SUHAIMEE KAJE | Software Developer',
   description: 'พอร์ตโฟลิโอ Full-stack Developer ที่เน้นการพัฒนาเว็บแอปพลิเคชันที่ขยายระบบได้และ cloud-native systems'
 };
 

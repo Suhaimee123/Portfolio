@@ -29,7 +29,7 @@ export default function Hero() {
         </h1>
 
         <h2 className="text-2xl md:text-3xl font-semibold text-purple-400 mb-6 tracking-wide">
-          นักพัฒนาซอฟต์แวร์
+          Software Developer
         </h2>
 
         <p className="text-base md:text-xl text-zinc-300 max-w-3xl mb-10 leading-relaxed">

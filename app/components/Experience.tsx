@@ -3,7 +3,7 @@ import React from 'react';
 const experiences = [
   {
     company: 'VANSALES APPLICATION COMPANY LIMITED',
-    role: 'นักพัฒนาซอฟต์แวร์',
+    role: 'Developer  ( Frontend )',
     period: '2025 - 2026',
     type: 'งานประจำ',
     highlights: [
