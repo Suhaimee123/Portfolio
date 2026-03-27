@@ -13,16 +13,7 @@ export default function About() {
             โดยมุ่งเน้นความเสถียร ความสามารถในการขยายระบบ และผลลัพธ์ที่ใช้งานได้จริงทางธุรกิจ
           </p>
 
-          <div className="grid grid-cols-1 gap-4">
-            <div className="reveal-card p-4 rounded-2xl bg-zinc-900/30 border border-white/5">
-              <p className="text-zinc-500 text-xs tracking-wider mb-1">รองรับผู้ใช้พร้อมกัน</p>
-              <p className="text-zinc-100 font-semibold">10,000+ concurrent users</p>
-            </div>
-            <div className="reveal-card p-4 rounded-2xl bg-zinc-900/30 border border-white/5">
-              <p className="text-zinc-500 text-xs tracking-wider mb-1">ขนาดของแพลตฟอร์ม</p>
-              <p className="text-zinc-100 font-semibold">รองรับผู้ใช้งานรวมมากกว่า 1M+</p>
-            </div>
-          </div>
+
         </div>
 
         <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8">
