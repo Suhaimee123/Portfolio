@@ -1,9 +1,9 @@
-import React from 'react';
+
 
 const skillCategories = [
   {
     title: 'ภาษาโปรแกรม',
-    skills: ['JavaScript (ES6+)', 'TypeScript', 'PHP']
+    skills: ['JavaScript', 'TypeScript', 'PHP']
   },
   {
     title: 'Frontend',
