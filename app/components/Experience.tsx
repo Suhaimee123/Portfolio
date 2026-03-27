@@ -17,7 +17,7 @@ const experiences = [
   },
   {
     company: 'Protoss Technology Co., Ltd. / VECABO CO., LTD.',
-    role: 'วิศวกรซอฟต์แวร์',
+    role: 'Software Engineer',
     period: '2024 - 2025',
     type: 'ฝึกงาน',
     highlights: [
