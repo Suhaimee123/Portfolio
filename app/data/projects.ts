@@ -75,7 +75,7 @@ export const projects: ProjectItem[] = [
     documents: [
       {
         label: 'ตัวอย่างการใช้งานลูกค้า (Guest Demo)',
-        url: 'https://warungpos-9e429.web.app/guest/?Id=UTT1cWu772MXhrnORl2kWGion8F3&pid=jQJocFrLRF'
+        url: 'https://warungpos-9e429.web.app/guest/?Id=UTT1cWu772MXhrnORl2kWGion8F3&pid=QLduex0smm'
       }
     ],
     liveUrl: 'https://warungpos-9e429.web.app/',
