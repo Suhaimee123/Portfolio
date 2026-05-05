@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { projects } from '@/app/data/projects';
 import ProjectImageCarousel from '@/app/components/ProjectImageCarousel';
 import MotionSection from '@/app/components/MotionSection';
+import ScaleMonitor from '@/app/components/ScaleMonitor';
 
 interface ProjectDetailPageProps {
   params: Promise<{
@@ -41,11 +42,13 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-5 title-shimmer bg-clip-text text-transparent bg-gradient-to-r from-zinc-100 via-white to-zinc-400">{project.title}</h1>
           <p className="text-zinc-300 leading-relaxed text-lg mb-8">{project.description}</p>
 
+          {project.slug === 'gold-scale-monitoring' && <ScaleMonitor />}
+
           {project.images?.length ? (
-            <>
+            <div className="mt-8">
               <h2 className="text-xl font-bold mb-4">ภาพโปรเจกต์</h2>
               <ProjectImageCarousel images={project.images} title={project.title} />
-            </>
+            </div>
           ) : null}
 
           {project.documents?.length ? (
