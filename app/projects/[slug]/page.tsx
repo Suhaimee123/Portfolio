@@ -51,6 +51,27 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
             </div>
           ) : null}
 
+          {project.videos?.length ? (
+            <div className="mt-8">
+              <h2 className="text-xl font-bold mb-4">วิดีโอตัวอย่าง</h2>
+              <div className="flex flex-col md:flex-row gap-4">
+                {project.videos.map((videoUrl) => (
+                  <div key={videoUrl} className="flex-1 rounded-2xl overflow-hidden border border-white/10 bg-zinc-950 flex items-center justify-center p-2">
+                    <video
+                      src={videoUrl}
+                      controls
+                      playsInline
+                      preload="metadata"
+                      className="w-full max-h-[60vh] object-contain rounded-xl"
+                    >
+                      เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
+                    </video>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : null}
+
           {project.documents?.length ? (
             <>
               <h2 className="text-xl font-bold mb-4">เอกสารแนบ</h2>

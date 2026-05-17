@@ -10,6 +10,7 @@ export interface ProjectItem {
   liveUrl?: string;
   coverImage?: string;
   images?: string[];
+  videos?: string[];
   tags: string[];
   gradient: string;
 }
@@ -70,6 +71,8 @@ export const projects: ProjectItem[] = [
       'พัฒนาฝั่งแอดมินสำหรับจัดการเมนู, โต๊ะ, ครัว, พนักงาน, ออเดอร์, และการชำระเงิน โดยรองรับการอัปเดตสถานะแบบ real-time',
       'เชื่อมระบบครัวและการชำระเงินด้วย Firestore listeners/SSE เพื่อให้การรับออเดอร์และการอัปเดตสถานะทำงานทันที',
       'พัฒนา backend บน Node.js/Express + Firebase Functions พร้อม Firebase Auth, role claims, และ Swagger API docs สำหรับทดสอบ endpoint',
+      'พัฒนา Local Print Proxy Service ด้วย Node.js เป็น Middleware แปลงข้อมูลจาก Web POS เป็นคำสั่ง ESC/POS เพื่อสั่งพิมพ์และเปิดลิ้นชักเก็บเงินผ่าน TCP Socket',
+      'สร้างโปรแกรม Print Proxy แบบ Standalone Executable (Windows/macOS) ด้วย pkg พร้อมระบบ Interactive CLI และจดจำ IP อัจฉริยะ (Plug & Play)',
       'มีโหมดตัวอย่างการใช้งานฝั่งลูกค้า โดยระบบตรวจสอบตำแหน่งตามเงื่อนไข และสามารถทดลองกดเล่น/สั่งอาหารได้ด้วยรหัสพนักงาน 1001'
     ],
     documents: [
@@ -80,7 +83,11 @@ export const projects: ProjectItem[] = [
     ],
     liveUrl: 'https://warungpos-9e429.web.app/',
     coverImage: '/warungpos/warung-4.png',
-    images: ['/warungpos/warung-1.png', '/warungpos/warung-2.png', '/warungpos/warung-3.png', '/warungpos/warung-4.png'],
+    images: ['/warungpos/warung-1.png', '/warungpos/warung-2.png', '/warungpos/warung-3.png', '/warungpos/warung-4.png', '/warungpos/IMG_3825.jpg'],
+    videos: [
+      '/warungpos/3639DC80-987E-4B7A-85D9-7917EB5E6065.mp4',
+      '/warungpos/IMG_3828.mp4'
+    ],
     tags: ['Next.js', 'TypeScript', 'Node.js', 'Express', 'Firebase'],
     gradient: 'from-emerald-500 to-cyan-500'
   },
