@@ -2,23 +2,23 @@ import React from 'react';
 
 const experiences = [
   {
-    company: 'VANSALES APPLICATION COMPANY LIMITED',
-    role: 'Developer  ( Frontend )',
-    period: '2025 - 2026',
+    company: 'บริษัท แวนเซลส์ แอพพลิเคชั่น จำกัด',
+    role: 'Developer (Frontend)',
+    period: '2568 - 2569',
     type: 'งานประจำ',
     highlights: [
-      'พัฒนาระบบลงทะเบียนประสิทธิภาพสูง รองรับผู้ใช้พร้อมกันมากกว่า 10,000 คนในช่วงพีค',
-      'ดำเนินการ migrate ข้อมูลจากระบบเก่าเข้าสู่ระบบใหม่ ให้ข้อมูลถูกต้องและพร้อมใช้งานในระบบใหม่ได้ทันที',
-      'ดูแลระบบขนาดใหญ่ที่มีผู้ใช้งานรวมมากกว่า 1 ล้านคน และผู้ใช้งานรายวันมากกว่า 10,000 คน',
-      'พัฒนาระบบติดตาม GPS แบบ real-time และแสดงเส้นทางการขายจากพิกัดสด',
-      'ออกแบบแดชบอร์ด Business Intelligence สำหรับวิเคราะห์ยอดขายและข้อมูลการปฏิบัติงาน',
-      'แก้ไขปัญหา production ที่สำคัญ เพื่อลด downtime และรักษาเสถียรภาพระบบ'
+      'พัฒนาระบบลงทะเบียนที่รองรับผู้ใช้งานพร้อมกันมากกว่า 10,000 คน พร้อมรองรับทราฟฟิกสูงได้อย่างมีเสถียรภาพ',
+      'ดูแลและซัพพอร์ตระบบขนาดใหญ่ที่มีฐานผู้ใช้งานมากกว่า 1 ล้านราย และผู้ใช้งานรายวันมากกว่า 10,000 คน',
+      'ดำเนินการย้ายข้อมูล (Data Migration) จากระบบเดิมสู่ระบบใหม่ อย่างถูกต้อง และรองรับการใช้งานต่อเนื่อง',
+      'พัฒนาระบบติดตามตำแหน่ง (GPS) แบบ Real-time เพื่อเพิ่มประสิทธิภาพการทำงานของทีมขาย',
+      'พัฒนาหน้าจอ Dashboard สำหรับแสดงผลข้อมูลยอดขายและสรุปผล การดำเนินงานตาม Business Requirement',
+      'วิเคราะห์และแก้ไขปัญหาระบบใน Production เพื่อลด Downtime และเพิ่มเสถียรภาพของระบบ'
     ]
   },
   {
     company: 'Protoss Technology Co., Ltd. / VECABO CO., LTD.',
     role: 'Software Engineer',
-    period: '2024 - 2025',
+    period: '2567 - 2568',
     type: 'ฝึกงาน',
     highlights: [
       'ความรับผิดชอบ: พัฒนาเว็บไซต์และแอปพลิเคชัน',
@@ -31,7 +31,10 @@ export default function Experience() {
   return (
     <section id="experience" className="py-24 relative border-t border-white/5">
       <div className="mb-16 flex flex-col items-center lg:items-start">
-        <h2 className="text-4xl font-extrabold mb-6 tracking-tight title-shimmer bg-clip-text text-transparent bg-gradient-to-r from-zinc-100 via-white to-zinc-400">ประสบการณ์การทำงาน</h2>
+        <div className="flex items-center gap-4 mb-6">
+          <h2 className="text-4xl font-extrabold tracking-tight title-shimmer bg-clip-text text-transparent bg-gradient-to-r from-zinc-100 via-white to-zinc-400">ประสบการณ์การทำงาน</h2>
+          <span className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-emerald-400 text-sm font-semibold shadow-[0_0_15px_rgba(52,211,153,0.1)]">รวม 1 ปี 9 เดือน</span>
+        </div>
         <div className="w-20 h-1.5 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full" />
       </div>
 

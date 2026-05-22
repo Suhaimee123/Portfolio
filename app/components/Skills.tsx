@@ -2,24 +2,20 @@
 
 const skillCategories = [
   {
-    title: 'ภาษาโปรแกรม',
-    skills: ['JavaScript', 'TypeScript', 'PHP']
-  },
-  {
     title: 'Frontend',
-    skills: ['React (TypeScript)', 'Vue.js', 'HTML5', 'CSS3']
+    skills: ['JavaScript', 'TypeScript', 'Next.js', 'React', 'Vue.js', 'TailwindCSS', 'SPA']
   },
   {
-    title: 'Backend',
-    skills: ['Node.js', 'NestJS', 'CodeIgniter']
+    title: 'Backend & API',
+    skills: ['Node.js', 'NestJS', 'RESTful API', 'WebSocket', 'Server-Sent Events (SSE)']
   },
   {
     title: 'Cloud & DevOps',
-    skills: ['Docker', 'AWS', 'DigitalOcean', 'Google Cloud Run', 'GitHub Actions']
+    skills: ['Google Cloud Run', 'DigitalOcean', 'AWS', 'Vercel', 'Docker', 'GitHub Actions (CI/CD)']
   },
   {
-    title: 'ฐานข้อมูล',
-    skills: ['Firestore (NoSQL)', 'MySQL', 'PostgreSQL']
+    title: 'Database & Testing',
+    skills: ['PostgreSQL', 'MySQL', 'Firebase', 'Performance & Load Testing']
   }
 ];
 

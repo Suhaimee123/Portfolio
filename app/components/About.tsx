@@ -28,8 +28,8 @@ export default function About() {
             <div className="space-y-3">
               <p className="text-zinc-100 font-semibold">สถาบันการจัดการปัญญาภิวัฒน์</p>
               <p className="text-zinc-400 text-sm">คณะวิศวกรรมศาสตร์และเทคโนโลยี</p>
-              <p className="text-zinc-400 text-sm">สาขาเทคโนโลยีดิจิทัลและสารสนเทศ</p>
-              <p className="text-emerald-400 font-medium">2021 - 2025</p>
+              <p className="text-zinc-400 text-sm">สาขาสารสนเทศและเทคโนโลยีดิจิทัล</p>
+              <p className="text-emerald-400 font-medium">2564 - 2568</p>
             </div>
           </div>
 

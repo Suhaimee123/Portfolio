@@ -63,17 +63,15 @@ export const projects: ProjectItem[] = [
   },
   {
     slug: 'restaurant-pos-southern-thailand',
-    title: 'ระบบ POS ร้านอาหาร (ภาคใต้)',
+    title: 'Restaurant POS System (ภาคใต้)',
     description:
-      'ระบบ POS ร้านอาหารที่พัฒนาครบทั้ง frontend และ backend รองรับ workflow หน้าร้านจริงตั้งแต่การสั่งอาหาร, จัดคิวครัว, ชำระเงิน, ไปจนถึงหน้าจอผู้ดูแลระบบแบบ role-based',
+      'ระบบ POS ร้านอาหารที่พัฒนาครบทั้ง frontend และ backend (พัฒนาเองคนเดียว) รองรับ workflow หน้าร้านจริงตั้งแต่การสั่งอาหาร, จัดคิวครัว, ชำระเงิน, ไปจนถึงหน้าจอผู้ดูแลระบบ',
     details: [
-      'พัฒนาฝั่งลูกค้า (Guest Flow) ตั้งแต่เลือกเมนู, ตะกร้า, ติดตามออเดอร์, และชำระเงิน พร้อมระบบสมาชิกและการยืนยันตัวตนตามบริบทโต๊ะ',
-      'พัฒนาฝั่งแอดมินสำหรับจัดการเมนู, โต๊ะ, ครัว, พนักงาน, ออเดอร์, และการชำระเงิน โดยรองรับการอัปเดตสถานะแบบ real-time',
-      'เชื่อมระบบครัวและการชำระเงินด้วย Firestore listeners/SSE เพื่อให้การรับออเดอร์และการอัปเดตสถานะทำงานทันที',
-      'พัฒนา backend บน Node.js/Express + Firebase Functions พร้อม Firebase Auth, role claims, และ Swagger API docs สำหรับทดสอบ endpoint',
-      'พัฒนา Local Print Proxy Service ด้วย Node.js เป็น Middleware แปลงข้อมูลจาก Web POS เป็นคำสั่ง ESC/POS เพื่อสั่งพิมพ์และเปิดลิ้นชักเก็บเงินผ่าน TCP Socket',
-      'สร้างโปรแกรม Print Proxy แบบ Standalone Executable (Windows/macOS) ด้วย pkg พร้อมระบบ Interactive CLI และจดจำ IP อัจฉริยะ (Plug & Play)',
-      'มีโหมดตัวอย่างการใช้งานฝั่งลูกค้า โดยระบบตรวจสอบตำแหน่งตามเงื่อนไข และสามารถทดลองกดเล่น/สั่งอาหารได้ด้วยรหัสพนักงาน 1001'
+      'End-to-End POS Workflow: พัฒนาระบบรองรับการทำงานหน้าร้านจริง ครอบคลุมทั้ง Guest Flow (ลูกค้าสแกนโต๊ะสั่งอาหาร, จัดการตะกร้า, จ่ายเงิน พร้อมระบบตรวจสอบตำแหน่ง/บริบทโต๊ะเพื่อความปลอดภัย) และ Admin Flow (ระบบหลังบ้านแบบ Role-based จัดการเมนู โต๊ะ คิวครัว และพนักงาน)',
+      'Real-time Operations: เชื่อมต่อระบบหน้าบ้าน, ครัว, และจุดชำระเงินเข้าด้วยกันแบบ Real-time ผ่าน Firestore Listeners ทำให้ออเดอร์และการอัปเดตสถานะทำงานได้ทันที',
+      'Backend & API Architecture: วางโครงสร้าง Backend ด้วย Node.js/Express ร่วมกับ Firebase Functions พร้อมระบบยืนยันตัวตนและจัดการสิทธิ์ด้วย Firebase Auth (Role Claims) และเลือกใช้ Bruno เป็นเครื่องมือในการทดสอบและจัดการ API Endpoints เพื่อความรวดเร็วและเป็นมาตรฐานในการทำงาน',
+      'Hardware Integration (Plug & Play): พัฒนา Local Print Proxy Service ด้วย Node.js เป็น Middleware แปลงข้อมูลจาก Web POS เป็นคำสั่ง ESC/POS สั่งพิมพ์สลิปและเปิดลิ้นชักผ่าน TCP Socket โดยทำการ Build เป็น Standalone Executable (Windows/macOS) ด้วย pkg พร้อมระบบ Interactive CLI และการจดจำ IP อัจฉริยะ',
+      'Data Integrity & Concurrency Control: จัดการปัญหาข้อมูลชนกัน (Race Condition) กรณีลูกค้าและพนักงานใช้งานพร้อมกัน ด้วย Database Transactions และ Locking (Atomic Operations) รวมถึงออกแบบระบบคำนวณแยกชำระเงิน (Split Bill) ที่แม่นยำระดับทศนิยมเพื่อความถูกต้องทางบัญชี'
     ],
     documents: [
       {
