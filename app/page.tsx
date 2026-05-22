@@ -60,7 +60,7 @@ export default function Home() {
       </main>
 
       <footer className="max-w-7xl mx-auto px-6 md:px-12 py-12 border-t border-white/5 text-center text-zinc-500 flex flex-col md:flex-row justify-between items-center gap-6 mt-12 bg-[#050505]/80 backdrop-blur-xl relative z-20 motion-section is-visible">
-        <p className="text-sm">© {new Date().getFullYear()} SUHAIMEE KAJE.</p>
+        <p className="text-sm">© {new Date().getFullYear()} SUHAIMEE KAJE</p>
         <div className="flex flex-wrap gap-4 text-sm font-medium">
           <a href="tel:0987231910" className="hover:text-white transition-colors chip-hover">098-723-1910</a>
           <a href="mailto:suhaimee.kj@gmail.com" className="hover:text-white transition-colors chip-hover">suhaimee.kj@gmail.com</a>
