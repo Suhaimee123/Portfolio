@@ -1,67 +1,147 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 
 const experiences = [
   {
     company: 'บริษัท แวนเซลส์ แอพพลิเคชั่น จำกัด',
-    role: 'Developer (Frontend)',
-    period: '2568 - 2569',
+    role: 'Developer (Frontend & System Support)',
+    period: 'พ.ศ. 2568 - 2569',
     type: 'งานประจำ',
     highlights: [
-      'Production Support & Data Cleansing: ดูแลและซัพพอร์ตระบบขนาดใหญ่ที่มีฐานผู้ใช้งานมากกว่า 1 ล้านราย และรองรับผู้ใช้งานพร้อมกันกว่า 10,000 คน (Concurrent users) โดยรับผิดชอบในการแก้ไขปัญหาเฉพาะหน้า (Troubleshooting), ตรวจสอบและจัดการข้อมูลขยะในฐานข้อมูล เพื่อให้ระบบดำเนินงานต่อไปได้ในช่วงที่มี Traffic สูง',
-      'ดำเนินการย้ายข้อมูล (Data Migration) จากระบบเดิมสู่ระบบใหม่ อย่างถูกต้อง และรองรับการใช้งานต่อเนื่อง',
-      'พัฒนาระบบติดตามตำแหน่ง (GPS) แบบ Real-time เพื่อเพิ่มประสิทธิภาพการทำงานของทีมขาย',
-      'พัฒนาหน้าจอ Dashboard สำหรับแสดงผลข้อมูลยอดขายและสรุปผล การดำเนินงานตาม Business Requirement',
-      'วิเคราะห์และแก้ไขปัญหาระบบใน Production เพื่อลด Downtime และเพิ่มเสถียรภาพของระบบ'
+      'Production Support & Data Cleansing: ซัพพอร์ตและกู้ไขวิกฤตระบบขนาดใหญ่ระดับ Enterprise ที่มีผู้ใช้งานมากกว่า 1,000,000 ราย และสามารถรับมือการใช้งานพร้อมกันได้สูงกว่า 10,000 Concurrent users ได้อย่างไร้รอยต่อ',
+      'Data Migration: วางแผนการย้ายฐานข้อมูลและตรวจสอบความถูกต้องของข้อมูลจากระบบ Legacy เดิม เพื่อลดข้อผิดพลาดในขั้นตอนเปลี่ยนผ่านฐานข้อมูลและรองรับการใช้งานต่อเนื่อง',
+      'Real-time Navigation: พัฒนาระบบติดตามพิกัดตำแหน่ง (GPS) ของทีมพนักงานขายแบบ real-time อัปเดตพิกัดไวและใช้หน่วยความจำต่ำ',
+      'Executive Dashboard: ออกแบบและพัฒนาหน้าแสดงผล Analytics Dashboard สรุปยอดขายและการดำเนินการตาม Business Requirement เพื่อประกอบการตัดสินใจของบอร์ดบริหาร',
+      'Downtime Reduction: วิเคราะห์ปัญหาความล่าช้าและการขัดข้องใน Production พร้อมทำ Troubleshooting เร่งด่วนเพื่อกู้คืนระบบได้อย่างทันท่วงที'
     ]
   },
   {
     company: 'Protoss Technology Co., Ltd. / VECABO CO., LTD.',
-    role: 'Software Engineer',
-    period: '2567 - 2568',
+    role: 'Software Engineer (Internship)',
+    period: 'พ.ศ. 2567 - 2568',
     type: 'ฝึกงาน',
     highlights: [
-      'ความรับผิดชอบ: พัฒนาเว็บไซต์และแอปพลิเคชัน',
-      'พัฒนาเว็บไซต์และแอปพลิเคชันตามความต้องการและข้อกำหนดที่ได้รับมอบหมาย ให้สอดคล้องกับเป้าหมายของโครงการ และมอบประสบการณ์การใช้งานที่เหมาะสมที่สุดแก่ผู้ใช้'
+      'Core Frontend Engineering: ร่วมพัฒนาระบบหลักของแอปพลิเคชันและเว็บไซต์ขององค์กรด้วย React และ TypeScript ให้มีสถาปัตยกรรมโค้ดที่สะอาดและขยายต่อได้ง่าย',
+      'Cross-Functional Delivery: ประสานงานร่วมกับทีมพัฒนาและทีม Product ในการวิเคราะห์ Requirement และแปลงมาเป็นหน้าจอใช้งานจริงที่สวยงามตาม Figma Prototype',
+      'Responsive Overhaul: ปรับปรุงประสิทธิภาพหน้าบ้านให้มีความเร็วสูงสุด รองรับการแสดงผลหน้าจอมือถือและแท็บเล็ตทุกขนาดอย่างไร้ที่ติ'
     ]
   }
 ];
 
 export default function Experience() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const activeExp = experiences[activeIndex];
+
   return (
-    <section id="experience" className="py-24 relative border-t border-white/5">
-      <div className="mb-16 flex flex-col items-center lg:items-start">
-        <div className="flex items-center gap-4 mb-6">
-          <h2 className="text-4xl font-extrabold tracking-tight title-shimmer bg-clip-text text-transparent bg-gradient-to-r from-zinc-100 via-white to-zinc-400">ประสบการณ์การทำงาน</h2>
-          <span className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-emerald-400 text-sm font-semibold shadow-[0_0_15px_rgba(52,211,153,0.1)]">รวม 1 ปี 9 เดือน</span>
+    <section id="experience" className="py-28 relative border-t border-white/5 overflow-hidden">
+      {/* Background radial highlight */}
+      <div className="absolute bottom-0 right-0 w-[450px] h-[450px] bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
+
+      <div className="max-w-7xl mx-auto">
+        {/* Section Title */}
+        <div className="mb-16 text-center lg:text-left">
+          <span className="text-cyan-400 font-mono text-sm tracking-wider uppercase mb-3 block">
+            02 // CHRONOLOGY
+          </span>
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+            เส้นทางและประสบการณ์ทำงาน
+          </h2>
         </div>
-        <div className="w-20 h-1.5 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full" />
-      </div>
 
-      <div className="grid grid-cols-1 gap-8">
-        {experiences.map((exp, idx) => (
-          <div key={idx} className="group reveal-card relative p-8 rounded-3xl bg-zinc-900/20 border border-white/5 hover:border-white/10 transition-all hover:bg-zinc-900/40">
-            <div className="flex flex-wrap gap-3 justify-between items-start mb-6">
-              <span className="px-3 py-1 rounded-full bg-white/5 text-xs font-medium text-zinc-400 border border-white/5 group-hover:text-zinc-300">
-                {exp.type}
-              </span>
-              <span className="text-sm font-medium text-zinc-500">{exp.period}</span>
-            </div>
+        {/* Asymmetrical Chronological Timeline Layout */}
+        <div className="flex flex-col lg:flex-row gap-12 items-start">
+          
+          {/* Left Column: Timeline Clickable Tree */}
+          <div className="w-full lg:w-5/12 space-y-4 relative z-10">
+            <div className="absolute left-6 lg:left-8 top-0 bottom-0 w-0.5 bg-white/5 -z-10" />
 
-            <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors uppercase italic">
-              {exp.company}
-            </h3>
-            <p className="text-purple-400 font-medium mb-6">{exp.role}</p>
+            {experiences.map((exp, idx) => {
+              const isActive = idx === activeIndex;
+              return (
+                <button
+                  key={idx}
+                  onClick={() => setActiveIndex(idx)}
+                  className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 flex gap-5 items-center relative overflow-hidden group ${
+                    isActive
+                      ? 'bg-[#0f0f0f] border-cyan-500/30 shadow-[0_4px_25px_rgba(6,182,212,0.15)] text-white'
+                      : 'bg-transparent border-white/5 hover:border-white/10 hover:bg-[#0c0c0c] text-zinc-400 hover:text-zinc-200'
+                  }`}
+                >
+                  {/* Glowing vertical connector highlight on active node */}
+                  {isActive && (
+                    <div className="absolute top-0 left-0 w-1 h-full bg-cyan-500" />
+                  )}
 
-            <ul className="space-y-3 text-zinc-300">
-              {exp.highlights.map((item) => (
-                <li key={item} className="flex items-start gap-3 leading-relaxed">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-purple-400 shrink-0" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+                  {/* Bullet Node Indicator */}
+                  <div className={`w-4 h-4 rounded-full border-2 shrink-0 flex items-center justify-center transition-all duration-300 ${
+                    isActive
+                      ? 'border-cyan-400 bg-cyan-400/25 scale-125'
+                      : 'border-zinc-700 bg-transparent group-hover:border-zinc-500'
+                  }`}>
+                    {isActive && <div className="w-1.5 h-1.5 rounded-full bg-cyan-400" />}
+                  </div>
+
+                  <div className="flex-1">
+                    <div className="flex justify-between items-center mb-1">
+                      <span className="font-mono text-xs uppercase tracking-widest text-zinc-500">
+                        {exp.period}
+                      </span>
+                      <span className={`px-2 py-0.5 rounded text-[10px] font-semibold border ${
+                        isActive
+                          ? 'bg-cyan-500/10 border-cyan-500/25 text-cyan-400'
+                          : 'bg-white/5 border-white/5 text-zinc-500'
+                      }`}>
+                        {exp.type}
+                      </span>
+                    </div>
+                    <h3 className="font-bold text-base transition-colors duration-300">
+                      {exp.company}
+                    </h3>
+                    <p className={`text-xs ${isActive ? 'text-cyan-400' : 'text-zinc-500'}`}>
+                      {exp.role}
+                    </p>
+                  </div>
+                </button>
+              );
+            })}
           </div>
-        ))}
+
+          {/* Right Column: Detailed Hub */}
+          <div className="w-full lg:w-7/12 min-h-[380px] bg-[#0c0c0c]/60 border border-white/5 rounded-3xl p-8 backdrop-blur-md relative overflow-hidden transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-white/[0.01] to-transparent pointer-events-none" />
+
+            {/* Content block fades in cleanly when activeExp updates */}
+            <div key={activeIndex} className="animate-[fadeIn_0.5s_ease-in-out]">
+              <div className="border-b border-white/5 pb-6 mb-6">
+                <span className="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono mb-3 inline-block">
+                  ACTIVE_ROLE_DETAILS // 0{activeIndex + 1}
+                </span>
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  {activeExp.role}
+                </h3>
+                <p className="text-zinc-400 font-medium">
+                  {activeExp.company}
+                </p>
+              </div>
+
+              {/* Bullet Highlights */}
+              <h4 className="text-sm font-semibold uppercase text-zinc-400 mb-4 tracking-wider">
+                หน้าที่รับผิดชอบและผลงานสำคัญ
+              </h4>
+              <ul className="space-y-4">
+                {activeExp.highlights.map((item, hIdx) => (
+                  <li key={hIdx} className="flex items-start gap-3.5 leading-relaxed text-zinc-300 text-sm md:text-base">
+                    <span className="mt-2.5 h-1.5 w-1.5 rounded-full bg-cyan-400 shrink-0 shadow-[0_0_8px_rgba(6,182,212,0.6)]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );

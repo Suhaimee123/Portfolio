@@ -35,8 +35,7 @@ export default function Home() {
         <MotionSection delay={200}>
           <section id="projects" className="py-24 relative">
             <div className="mb-16 md:mb-24 flex flex-col items-center text-center">
-              <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight title-shimmer bg-clip-text text-transparent bg-gradient-to-r from-zinc-100 via-white to-zinc-400">โปรเจกต์เด่น</h2>
-              <div className="w-24 h-1.5 bg-gradient-to-r from-purple-500 via-blue-500 to-emerald-500 rounded-full" />
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight text-white">โปรเจกต์เด่น</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">

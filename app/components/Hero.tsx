@@ -28,7 +28,7 @@ export default function Hero() {
           <span className="text-2xl md:text-3xl block mt-2 text-zinc-400 font-medium">( JJ )</span>
         </h1>
 
-        <h2 className="text-2xl md:text-3xl font-semibold text-purple-400 mb-6 tracking-wide">
+        <h2 className="text-2xl md:text-3xl font-semibold text-purple-400 mb-6">
           Software Developer
         </h2>
 

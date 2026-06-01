@@ -1,48 +1,180 @@
+'use client';
 
+import React, { useState } from 'react';
 
-const skillCategories = [
+interface SkillCategory {
+  title: string;
+  glowColor: string; // Tailwind glow class (e.g. shadow-cyan-500/20)
+  borderColor: string; // border class on hover
+  iconColor: string;
+  skills: string[];
+}
+
+const skillCategories: SkillCategory[] = [
   {
-    title: 'Frontend',
+    title: 'Frontend (Visual Engine)',
+    glowColor: 'hover:shadow-[0_0_20px_rgba(6,182,212,0.25)] hover:border-cyan-500/30',
+    borderColor: 'group-hover:border-cyan-500/20',
+    iconColor: 'text-cyan-400',
     skills: ['JavaScript', 'TypeScript', 'Next.js', 'React', 'Vue.js', 'TailwindCSS', 'SPA']
   },
   {
-    title: 'Backend & API',
+    title: 'Backend & API (Logic Core)',
+    glowColor: 'hover:shadow-[0_0_20px_rgba(168,85,247,0.25)] hover:border-purple-500/30',
+    borderColor: 'group-hover:border-purple-500/20',
+    iconColor: 'text-purple-400',
     skills: ['Node.js', 'NestJS', 'RESTful API', 'WebSocket', 'Server-Sent Events (SSE)']
   },
   {
-    title: 'Cloud & DevOps',
+    title: 'Cloud & DevOps (Infrastructure)',
+    glowColor: 'hover:shadow-[0_0_20px_rgba(16,185,129,0.25)] hover:border-emerald-500/30',
+    borderColor: 'group-hover:border-emerald-500/20',
+    iconColor: 'text-emerald-400',
     skills: ['Google Cloud Run', 'DigitalOcean', 'AWS', 'Vercel', 'Docker', 'GitHub Actions (CI/CD)']
   },
   {
-    title: 'Database & Testing',
+    title: 'Database & Testing (Stability)',
+    glowColor: 'hover:shadow-[0_0_20px_rgba(245,158,11,0.25)] hover:border-amber-500/30',
+    borderColor: 'group-hover:border-amber-500/20',
+    iconColor: 'text-amber-400',
     skills: ['PostgreSQL', 'MySQL', 'Firebase', 'Performance & Load Testing']
   }
 ];
 
+const skillDescriptions: Record<string, string> = {
+  'JavaScript': 'พัฒนาระบบ Interactive Frontend และเขียน Script ทำการล้างข้อมูลขยะ (Data Cleansing) ในระบบหลังบ้านอย่างแม่นยำ',
+  'TypeScript': 'ใช้ในการเขียน Type-Safe Code ครอบคลุมทั้งโปรเจกต์ Next.js และ NestJS ช่วยลดข้อผิดพลาดใน Production ได้มากกว่า 90%',
+  'Next.js': 'เชี่ยวชาญการปรับแต่งเส้นทาง SSR, ISR, Server Actions และระบบ Dynamic Routing เพื่อผลลัพธ์ประสิทธิภาพและความสามารถด้าน SEO สูงสุด',
+  'React': 'ออกแบบ Custom Hooks และแยก Component โครงสร้าง UI ซับซ้อน เพื่อให้นำกลับมาใช้ซ้ำได้ง่ายและจัดการ Virtual DOM อย่างมีระเบียบ',
+  'Vue.js': 'พัฒนา SPA ด้วย Vue.js (Composition API) และ Vuex ในการสร้างเว็บแอปพลิเคชันที่มีการอัปเดตข้อมูลแบบตอบสนองไว',
+  'TailwindCSS': 'กำหนด CSS Tokens และจัดโครงสร้าง Theme ในระบบ เพื่อสร้างเว็บ Responsive ดีไซน์สวยงามและลื่นไหลไม่มีติดขัด',
+  'SPA': 'ปรับปรุงกระบวนการ caching และการเปลี่ยนหน้าฝั่งไคลเอนต์เพื่อให้หน้าจอโหลดข้อมูลรวดเร็วทันใจผู้ใช้งานมากที่สุด',
+  'Node.js': 'เขียน backend server-side จัดการงานหนักใน background event loops และสร้างกระบวนการส่งออกไฟล์ข้อมูลประสิทธิภาพสูง',
+  'NestJS': 'วางสถาปัตยกรรมแบบ Modular Enterprise-Grade ตกแต่ง Dependency Injection และสร้าง Middleware ตรวจสอบสิทธิ์ผู้ใช้อย่างแน่นหนา',
+  'RESTful API': 'สร้าง API Gateways รองรับการสื่อสารข้อมูล ปลอดภัยด้วย Payload Validation, CORS policies และการจัดการ Error อย่างเป็นระบบ',
+  'WebSocket': 'เขียนระบบเชื่อมต่อแบบสองทิศทางแบบ real-time ใช้ในฟังก์ชันติดตามพิกัด GPS ของพนักงานขายที่มีความหน่วงต่ำเป็นพิเศษ',
+  'Server-Sent Events (SSE)': 'สร้างท่อสตรีมข้อมูลฝั่งเดียวแบบ Real-time เพื่ออัปเดต Dashboard ยอดขายของร้านค้าโดยไม่ต้องดึงข้อมูลซ้ำๆ',
+  'Google Cloud Run': 'ทำคอนเทนเนอร์เซิร์ฟเวอร์เลสแบบออโต้สเกลลิ่ง รองรับการเพิ่มขยายเครื่องอัตโนมัติเมื่อมี Traffic ในการเข้าใช้งานพุ่งสูงขึ้น',
+  'DigitalOcean': 'บริหารจัดการ Droplets, ตั้งค่า Nginx Reverse Proxy, ติดตั้ง SSL Certs และวางระบบ Firewall คุมความปลอดภัย',
+  'AWS': 'ใช้งาน Amazon S3 เก็บรักษาไฟล์มีเดียของพอร์ตโฟลิโอ รวมถึงสร้าง EC2 และกำหนด IAM permissions ควบคุมการเข้าถึง',
+  'Vercel': 'กำหนดขอบเขต Edge Network, ฟังก์ชัน serverless และตั้งค่า Auto Deployments เชื่อมตรงกับ GitHub Branches สะดวกรวดเร็ว',
+  'Docker': 'เขียน Multi-stage Dockerfile เพื่อห่อหุ้มสภาพแวดล้อมจำลองของระบบ ช่วยให้การนำขึ้นเซิร์ฟเวอร์ทุกเครื่องเสถียรและเร็วขึ้น',
+  'GitHub Actions (CI/CD)': 'เขียนสคริปต์ Workflow ปล่อยทดสอบ Unit Test อัตโนมัติ และผลักโค้ดขึ้นระบบโฮสติ้งทุกครั้งที่สั่ง Merge โค้ดเสร็จสิ้น',
+  'PostgreSQL': 'ออกแบบสคีมาฐานข้อมูล ตกแต่ง Index เพื่อการค้นหาด่วน และเขียนสคริปต์ดึงข้อมูลแบบ Join หลายตารางที่ซับซ้อน',
+  'MySQL': 'จัดการระบบฐานข้อมูลเชิงสัมพันธ์ เขียน Queries ประสิทธิภาพสูง และทำ Transaction Control เพื่อความถูกต้องในระบบการขาย',
+  'Firebase': 'ติดตั้ง Authentication จัดการสิทธิ์การล็อกอินของผู้ใช้ และเขียน Query ข้อมูลแบบเรียลไทม์ใน NoSQL Cloud Firestore',
+  'Performance & Load Testing': 'ใช้เครื่องมือวัดประสิทธิภาพจำลองส่ง request เข้ามาถล่มเซิร์ฟเวอร์ เพื่อวิเคราะห์คอขวดและปรับแต่งจุดขัดข้องให้ระบบ'
+};
+
 export default function Skills() {
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  const [hoveredCategory, setHoveredCategory] = useState<SkillCategory | null>(null);
+
+  const handleMouseEnter = (skill: string, category: SkillCategory) => {
+    setHoveredSkill(skill);
+    setHoveredCategory(category);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredSkill(null);
+    setHoveredCategory(null);
+  };
+
   return (
-    <section id="skills" className="py-24 relative border-t border-white/5">
-      <div className="mb-16 flex flex-col items-center">
-        <h2 className="text-4xl font-extrabold mb-6 tracking-tight title-shimmer bg-clip-text text-transparent bg-gradient-to-r from-zinc-100 via-white to-zinc-400">ทักษะทางเทคนิค</h2>
-        <div className="w-20 h-1.5 bg-gradient-to-r from-emerald-500 to-purple-500 rounded-full" />
-      </div>
+    <section id="skills" className="py-28 relative border-t border-white/5 overflow-hidden">
+      {/* Background radial highlight */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[150px] pointer-events-none -z-10" />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {skillCategories.map((category, idx) => (
-          <div key={idx} className="reveal-card p-8 rounded-[2.5rem] bg-zinc-900/30 border border-white/5 backdrop-blur-sm relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-white/[0.03] to-transparent rounded-bl-full pointer-events-none" />
+      <div className="max-w-7xl mx-auto">
+        {/* Section Title */}
+        <div className="mb-16 text-center">
+          <span className="text-purple-400 font-mono text-sm tracking-wider uppercase mb-3 block">
+            03 // CAPABILITIES
+          </span>
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
+            ทักษะความสามารถทางเทคนิค
+          </h2>
+          <p className="text-zinc-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+            นำเมาส์ไปชี้ที่แต่ละกล่องเทคโนโลยี เพื่อตรวจสอบบันทึกการนำไปประยุกต์ใช้งานจริงในระบบโปรดักชัน
+          </p>
+        </div>
 
-            <h3 className="text-xl font-bold mb-8 text-white relative z-10">{category.title}</h3>
+        {/* Categories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          {skillCategories.map((category, idx) => (
+            <div
+              key={idx}
+              className={`p-8 rounded-3xl bg-[#0c0c0c]/60 border border-white/5 backdrop-blur-md relative overflow-hidden group transition-all duration-300 ${category.glowColor}`}
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-white/[0.02] to-transparent rounded-bl-full pointer-events-none" />
 
-            <div className="flex flex-wrap gap-3 relative z-10">
-              {category.skills.map((skill, sIdx) => (
-                <span key={sIdx} className="tag-pop px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-zinc-300 text-sm font-medium hover:bg-white/10 hover:text-white transition-all cursor-default">
-                  {skill}
-                </span>
-              ))}
+              <div className="flex gap-4 items-center mb-6">
+                <span className={`w-2.5 h-2.5 rounded-full bg-current ${category.iconColor}`} />
+                <h3 className="text-lg font-bold text-white transition-colors duration-300">
+                  {category.title}
+                </h3>
+              </div>
+
+              <div className="flex flex-wrap gap-2.5">
+                {category.skills.map((skill, sIdx) => {
+                  const isHovered = hoveredSkill === skill;
+                  return (
+                    <span
+                      key={sIdx}
+                      onMouseEnter={() => handleMouseEnter(skill, category)}
+                      onMouseLeave={handleMouseLeave}
+                      className={`px-4 py-2 rounded-xl text-sm font-medium border transition-all duration-200 cursor-default ${
+                        isHovered
+                          ? 'bg-white/10 text-white border-white/20 scale-105 shadow-sm'
+                          : 'bg-white/5 border-white/5 text-zinc-400 hover:text-zinc-200 hover:bg-white/5'
+                      }`}
+                    >
+                      {skill}
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Tech Operational Console at the Bottom */}
+        <div className="rounded-2xl border border-white/10 bg-[#070707]/90 backdrop-blur-md p-6 font-mono text-xs shadow-[0_8px_32px_rgba(0,0,0,0.5)] overflow-hidden relative group">
+          {/* Console Header */}
+          <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/5">
+            <div className="flex gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-rose-500/70" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500/70" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70" />
+            </div>
+            <div className="text-zinc-500 text-[10px] tracking-wider uppercase">
+              TECH_CONSOLE_OUTPUT // {hoveredSkill ? hoveredSkill.toUpperCase() : 'STANDBY'}
             </div>
           </div>
-        ))}
+
+          {/* Console Body with Typing Simulation */}
+          <div className="min-h-[70px] flex items-center justify-between">
+            <div className="space-y-1.5 flex-1">
+              {hoveredSkill ? (
+                <>
+                  <p className="text-zinc-500 uppercase tracking-widest text-[9px] font-bold">
+                    SYSTEM RUNTIME IMPLEMENTATION REPORT
+                  </p>
+                  <p className={`text-sm font-semibold transition-all duration-300 ${hoveredCategory?.iconColor}`}>
+                    &gt; {hoveredSkill}: <span className="text-zinc-200">{skillDescriptions[hoveredSkill] || 'ไม่มีรายละเอียดการบันทึกการใช้งาน'}</span>
+                  </p>
+                </>
+              ) : (
+                <p className="text-zinc-500 text-sm">
+                  &gt; นำเมาส์ไปชี้ที่ทักษะด้านบน เพื่อตรวจสอบบันทึกการใช้งานจริงในระบบ...
+                </p>
+              )}
+            </div>
+            {/* Pulsing prompt caret */}
+            <span className="ml-4 inline-block w-2.5 h-4 bg-zinc-600 animate-[pulse_1s_infinite] shrink-0" />
+          </div>
+        </div>
+
       </div>
     </section>
   );
