@@ -9,7 +9,8 @@ const experiences = [
     period: 'พ.ศ. 2568 - 2569',
     type: 'งานประจำ',
     highlights: [
-      'Production Support & Data Cleansing: ซัพพอร์ตและกู้ไขวิกฤตระบบขนาดใหญ่ระดับ Enterprise ที่มีผู้ใช้งานมากกว่า 1,000,000 ราย และสามารถรับมือการใช้งานพร้อมกันได้สูงกว่า 10,000 Concurrent users ได้อย่างไร้รอยต่อ',
+      'CRM System Development: ร่วมพัฒนาระบบบริหารจัดการความสัมพันธ์ลูกค้า (CRM) โดยรับผิดชอบการเขียนโค้ดและพัฒนาระบบให้ทำงานได้อย่างถูกต้องตาม Business Logic และ Requirement ของลูกค้า',
+      'Production Support & Data Cleansing: ซัพพอร์ตและกู้ไขวิกฤตระบบขนาดใหญ่ระดับ Enterprise ได้อย่างไร้รอยต่อ',
       'Data Migration: วางแผนการย้ายฐานข้อมูลและตรวจสอบความถูกต้องของข้อมูลจากระบบ Legacy เดิม เพื่อลดข้อผิดพลาดในขั้นตอนเปลี่ยนผ่านฐานข้อมูลและรองรับการใช้งานต่อเนื่อง',
       'Real-time Navigation: พัฒนาระบบติดตามพิกัดตำแหน่ง (GPS) ของทีมพนักงานขายแบบ real-time อัปเดตพิกัดไวและใช้หน่วยความจำต่ำ',
       'Executive Dashboard: ออกแบบและพัฒนาหน้าแสดงผล Analytics Dashboard สรุปยอดขายและการดำเนินการตาม Business Requirement เพื่อประกอบการตัดสินใจของบอร์ดบริหาร',
@@ -52,7 +53,7 @@ export default function Experience() {
 
         {/* Asymmetrical Chronological Timeline Layout */}
         <div className="flex flex-col lg:flex-row gap-12 items-start">
-          
+
           {/* Left Column: Timeline Clickable Tree */}
           <div className="w-full lg:w-5/12 space-y-4 relative z-10">
             <div className="absolute left-6 lg:left-8 top-0 bottom-0 w-0.5 bg-white/5 -z-10" />
@@ -63,11 +64,10 @@ export default function Experience() {
                 <button
                   key={idx}
                   onClick={() => setActiveIndex(idx)}
-                  className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 flex gap-5 items-center relative overflow-hidden group ${
-                    isActive
+                  className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 flex gap-5 items-center relative overflow-hidden group ${isActive
                       ? 'bg-[#0f0f0f] border-cyan-500/30 shadow-[0_4px_25px_rgba(6,182,212,0.15)] text-white'
                       : 'bg-transparent border-white/5 hover:border-white/10 hover:bg-[#0c0c0c] text-zinc-400 hover:text-zinc-200'
-                  }`}
+                    }`}
                 >
                   {/* Glowing vertical connector highlight on active node */}
                   {isActive && (
@@ -75,11 +75,10 @@ export default function Experience() {
                   )}
 
                   {/* Bullet Node Indicator */}
-                  <div className={`w-4 h-4 rounded-full border-2 shrink-0 flex items-center justify-center transition-all duration-300 ${
-                    isActive
+                  <div className={`w-4 h-4 rounded-full border-2 shrink-0 flex items-center justify-center transition-all duration-300 ${isActive
                       ? 'border-cyan-400 bg-cyan-400/25 scale-125'
                       : 'border-zinc-700 bg-transparent group-hover:border-zinc-500'
-                  }`}>
+                    }`}>
                     {isActive && <div className="w-1.5 h-1.5 rounded-full bg-cyan-400" />}
                   </div>
 
@@ -88,11 +87,10 @@ export default function Experience() {
                       <span className="font-mono text-xs uppercase tracking-widest text-zinc-500">
                         {exp.period}
                       </span>
-                      <span className={`px-2 py-0.5 rounded text-[10px] font-semibold border ${
-                        isActive
+                      <span className={`px-2 py-0.5 rounded text-[10px] font-semibold border ${isActive
                           ? 'bg-cyan-500/10 border-cyan-500/25 text-cyan-400'
                           : 'bg-white/5 border-white/5 text-zinc-500'
-                      }`}>
+                        }`}>
                         {exp.type}
                       </span>
                     </div>
