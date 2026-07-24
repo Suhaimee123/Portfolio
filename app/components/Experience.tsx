@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 const experiences = [
   {
     company: 'บริษัท แวนเซลส์ แอพพลิเคชั่น จำกัด',
-    role: 'Developer (Frontend & System Support)',
+    role: 'Developer',
     period: 'พ.ศ. 2568 - 2569',
     type: 'งานประจำ',
     highlights: [
