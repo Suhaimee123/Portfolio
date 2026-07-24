@@ -9,12 +9,11 @@ const experiences = [
     period: 'พ.ศ. 2568 - 2569',
     type: 'งานประจำ',
     highlights: [
-      'CRM System Development: ร่วมพัฒนาระบบบริหารจัดการความสัมพันธ์ลูกค้า (CRM) โดยรับผิดชอบการเขียนโค้ดและพัฒนาระบบให้ทำงานได้อย่างถูกต้องตาม Business Logic และ Requirement ของลูกค้า',
-      'Production Support & Data Cleansing: ซัพพอร์ตและกู้ไขวิกฤตระบบขนาดใหญ่ระดับ Enterprise ได้อย่างไร้รอยต่อ',
-      'Data Migration: วางแผนการย้ายฐานข้อมูลและตรวจสอบความถูกต้องของข้อมูลจากระบบ Legacy เดิม เพื่อลดข้อผิดพลาดในขั้นตอนเปลี่ยนผ่านฐานข้อมูลและรองรับการใช้งานต่อเนื่อง',
-      'Real-time Navigation: พัฒนาระบบติดตามพิกัดตำแหน่ง (GPS) ของทีมพนักงานขายแบบ real-time อัปเดตพิกัดไวและใช้หน่วยความจำต่ำ',
-      'Executive Dashboard: ออกแบบและพัฒนาหน้าแสดงผล Analytics Dashboard สรุปยอดขายและการดำเนินการตาม Business Requirement เพื่อประกอบการตัดสินใจของบอร์ดบริหาร',
-      'Downtime Reduction: วิเคราะห์ปัญหาความล่าช้าและการขัดข้องใน Production พร้อมทำ Troubleshooting เร่งด่วนเพื่อกู้คืนระบบได้อย่างทันท่วงที'
+      'Gold ERP & IoT Integration: ร่วมพัฒนาเว็บแอปพลิเคชันระบบคลังสินค้าทองคำ (ERP) และพัฒนาระบบเชื่อมต่อกับเครื่องชั่งดิจิทัลระดับอุตสาหกรรมด้วย Web Serial API และ Python (PySerial) เพื่ออ่านค่าน้ำหนักจริงแบบ Real-time',
+      'Data Cleansing & Migration: พัฒนาสคริปต์ Python & Pandas ทำความสะอาดฐานข้อมูลคู่ค้าและสินค้าคงคลัง (SKUs) เพื่อย้ายจากระบบเก่า เข้าสู่ระบบใหม่ได้อย่างสมบูรณ์แบบ',
+      'Production Support & Troubleshooting: ร่วมซัพพอร์ตและวิเคราะห์หาสาเหตุของปัญหาระบบขัดข้องใน Production พร้อมทำโปรแกรมแก้ไขแบบเร่งด่วนเพื่อกู้คืนระบบ',
+      'Real-time Navigation: พัฒนาระบบติดตามพิกัดตำแหน่ง (GPS) ของทีมพนักงานขายแบบ real-time อัปเดตพิกัดไวและใช้ทรัพยากรระบบต่ำ',
+      'Executive Dashboard: พัฒนาหน้าแสดงผล Dashboard สรุปยอดขายตามข้อมูลเรียลไทม์เพื่อประกอบการตัดสินใจของฝ่ายบริหาร'
     ]
   },
   {
@@ -65,8 +64,8 @@ export default function Experience() {
                   key={idx}
                   onClick={() => setActiveIndex(idx)}
                   className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 flex gap-5 items-center relative overflow-hidden group ${isActive
-                      ? 'bg-[#0f0f0f] border-cyan-500/30 shadow-[0_4px_25px_rgba(6,182,212,0.15)] text-white'
-                      : 'bg-transparent border-white/5 hover:border-white/10 hover:bg-[#0c0c0c] text-zinc-400 hover:text-zinc-200'
+                    ? 'bg-[#0f0f0f] border-cyan-500/30 shadow-[0_4px_25px_rgba(6,182,212,0.15)] text-white'
+                    : 'bg-transparent border-white/5 hover:border-white/10 hover:bg-[#0c0c0c] text-zinc-400 hover:text-zinc-200'
                     }`}
                 >
                   {/* Glowing vertical connector highlight on active node */}
@@ -76,8 +75,8 @@ export default function Experience() {
 
                   {/* Bullet Node Indicator */}
                   <div className={`w-4 h-4 rounded-full border-2 shrink-0 flex items-center justify-center transition-all duration-300 ${isActive
-                      ? 'border-cyan-400 bg-cyan-400/25 scale-125'
-                      : 'border-zinc-700 bg-transparent group-hover:border-zinc-500'
+                    ? 'border-cyan-400 bg-cyan-400/25 scale-125'
+                    : 'border-zinc-700 bg-transparent group-hover:border-zinc-500'
                     }`}>
                     {isActive && <div className="w-1.5 h-1.5 rounded-full bg-cyan-400" />}
                   </div>
@@ -88,8 +87,8 @@ export default function Experience() {
                         {exp.period}
                       </span>
                       <span className={`px-2 py-0.5 rounded text-[10px] font-semibold border ${isActive
-                          ? 'bg-cyan-500/10 border-cyan-500/25 text-cyan-400'
-                          : 'bg-white/5 border-white/5 text-zinc-500'
+                        ? 'bg-cyan-500/10 border-cyan-500/25 text-cyan-400'
+                        : 'bg-white/5 border-white/5 text-zinc-500'
                         }`}>
                         {exp.type}
                       </span>

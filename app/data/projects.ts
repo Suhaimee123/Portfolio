@@ -17,6 +17,53 @@ export interface ProjectItem {
 
 export const projects: ProjectItem[] = [
   {
+    slug: 'gold-scale-monitoring',
+    title: 'CES - Gold ERP & Precision Scale Monitoring System',
+    description:
+      'ร่วมพัฒนาระบบบริหารจัดการธุรกิจค้าทองคำและคลังสินค้า (ERP) ฝั่งหน้าบ้าน (Frontend Dashboard) และจัดการข้อมูลนำเข้า (Data Migration) พร้อมพัฒนาระบบมอนิเตอร์ค่าน้ำหนักจากเครื่องชั่งทองคำอัจฉริยะผ่าน Web Serial API แบบ Real-time',
+    details: [
+      'ร่วมพัฒนาหน้าจอเว็บแอปพลิเคชันระบบบริหารจัดการคลังทองคำ (ERP Dashboard) เพื่อควบคุมระบบงานทองคำเฉพาะทาง เช่น การส่งหลอมทอง (Refining), การจัดการช่างทองและค่ากำเหน็จ (Goldsmith Rate), และการทำรายการชำระเงิน (Settlement)',
+      'Hardware Integration: พัฒนาระบบเชื่อมต่อกับเครื่องชั่งดิจิทัลระดับอุตสาหกรรม (Mettler Toledo) และสายแปลง Serial/USB (FTDI, Prolific, CH340, CP210x) ด้วย Web Serial API บนเบราว์เซอร์โดยตรงโดยไม่ต้องมีโปรแกรมตัวกลาง',
+      'Industrial Protocol Support: เขียนโปรแกรมรับส่งข้อมูลตามโปรโตคอลมาตรฐาน MT-SICS (Mettler Toledo Standard Interface Command Set) รองรับคำสั่งส่งน้ำหนักทันที (S) และการส่งค่าน้ำหนักต่อเนื่องแบบสตรีมมิ่ง (SIR)',
+      'Desktop & CLI Monitoring: พัฒนาสคริปต์ Python CLI ด้วยไลบรารี PySerial สำหรับใช้ทดสอบ เชื่อมต่อ และบันทึกข้อมูลค่าน้ำหนักจากเครื่องชั่งแบบอัตโนมัติ',
+      'Data Migration & Cleansing: พัฒนาชุดสคริปต์ Python (Jupyter Notebook & Pandas) เพื่อล้างข้อมูลและนำเข้าข้อมูลสินค้า (SKUs) และรายชื่อช่างทอง/คู่ค้าจำนวนนับหมื่นแถวจากไฟล์ Excel (Vansales) เข้าฐานข้อมูลของระบบใหม่ พร้อมระบบป้องกันข้อมูลซ้ำซ้อน'
+    ],
+    coverImage: '/gold/DD861832-9AD0-4EFB-B634-39E456BCAE87.JPG',
+    images: [
+      '/gold/DD861832-9AD0-4EFB-B634-39E456BCAE87.JPG'
+    ],
+    tags: ['React 19', 'NestJS', 'Web Serial API', 'Python & Pandas', 'Data Migration', 'PostgreSQL & Prisma'],
+    gradient: 'from-amber-500 to-yellow-600'
+  },
+  {
+    slug: 'restaurant-pos-southern-thailand',
+    title: 'Restaurant POS System (ภาคใต้)',
+    description:
+      'ระบบ POS ร้านอาหารที่พัฒนาครบทั้ง frontend และ backend (พัฒนาเองคนเดียว) รองรับ workflow หน้าร้านจริงตั้งแต่การสั่งอาหาร, จัดคิวครัว, ชำระเงิน, ไปจนถึงหน้าจอผู้ดูแลระบบ',
+    details: [
+      'End-to-End POS Workflow: พัฒนาระบบรองรับการทำงานหน้าร้านจริง ครอบคลุมทั้ง Guest Flow (ลูกค้าสแกนโต๊ะสั่งอาหาร, จัดการตะกร้า, จ่ายเงิน พร้อมระบบตรวจสอบตำแหน่ง/บริบทโต๊ะเพื่อความปลอดภัย) และ Admin Flow (ระบบหลังบ้านแบบ Role-based จัดการเมนู โต๊ะ คิวครัว และพนักงาน)',
+      'Real-time Operations: เชื่อมต่อระบบหน้าบ้าน, ครัว, และจุดชำระเงินเข้าด้วยกันแบบ Real-time ผ่าน Firestore Listeners ทำให้ออเดอร์และการอัปเดตสถานะทำงานได้ทันที',
+      'Backend & API Architecture: วางโครงสร้าง Backend ด้วย Node.js/Express ร่วมกับ Firebase Functions พร้อมระบบยืนยันตัวตนและจัดการสิทธิ์ด้วย Firebase Auth (Role Claims) และเลือกใช้ Bruno เป็นเครื่องมือในการทดสอบและจัดการ API Endpoints เพื่อความรวดเร็วและเป็นมาตรฐานในการทำงาน',
+      'Hardware Integration (Plug & Play): พัฒนา Local Print Proxy Service ด้วย Node.js เป็น Middleware แปลงข้อมูลจาก Web POS เป็นคำสั่ง ESC/POS สั่งพิมพ์สลิปและเปิดลิ้นชักผ่าน TCP Socket โดยทำการ Build เป็น Standalone Executable (Windows/macOS) ด้วย pkg พร้อมระบบ Interactive CLI และการจดจำ IP อัจฉริยะ',
+      'Data Integrity & Concurrency Control: จัดการปัญหาข้อมูลชนกัน (Race Condition) กรณีลูกค้าและพนักงานใช้งานพร้อมกัน ด้วย Database Transactions และ Locking (Atomic Operations) รวมถึงออกแบบระบบคำนวณแยกชำระเงิน (Split Bill) ที่แม่นยำระดับทศนิยมเพื่อความถูกต้องทางบัญชี'
+    ],
+    documents: [
+      {
+        label: 'ตัวอย่างการใช้งานลูกค้า (Guest Demo)',
+        url: 'https://warungpos-9e429.web.app/guest/?Id=UTT1cWu772MXhrnORl2kWGion8F3&pid=QLduex0smm'
+      }
+    ],
+    liveUrl: 'https://warungpos-9e429.web.app/',
+    coverImage: '/warungpos/warung-4.png',
+    images: ['/warungpos/warung-1.png', '/warungpos/warung-2.png', '/warungpos/warung-3.png', '/warungpos/warung-4.png', '/warungpos/IMG_3825.jpg'],
+    videos: [
+      '/warungpos/3639DC80-987E-4B7A-85D9-7917EB5E6065.mp4',
+      '/warungpos/IMG_3828.mp4'
+    ],
+    tags: ['Next.js', 'TypeScript', 'Node.js', 'Express', 'Firebase'],
+    gradient: 'from-emerald-500 to-cyan-500'
+  },
+  {
     slug: 'village-hub-ppld',
     title: 'Village Hub PPLD',
     description:
@@ -60,52 +107,5 @@ export const projects: ProjectItem[] = [
     ],
     tags: ['Web Application', 'Real-time Data', 'Map'],
     gradient: 'from-cyan-500 to-blue-500'
-  },
-  {
-    slug: 'restaurant-pos-southern-thailand',
-    title: 'Restaurant POS System (ภาคใต้)',
-    description:
-      'ระบบ POS ร้านอาหารที่พัฒนาครบทั้ง frontend และ backend (พัฒนาเองคนเดียว) รองรับ workflow หน้าร้านจริงตั้งแต่การสั่งอาหาร, จัดคิวครัว, ชำระเงิน, ไปจนถึงหน้าจอผู้ดูแลระบบ',
-    details: [
-      'End-to-End POS Workflow: พัฒนาระบบรองรับการทำงานหน้าร้านจริง ครอบคลุมทั้ง Guest Flow (ลูกค้าสแกนโต๊ะสั่งอาหาร, จัดการตะกร้า, จ่ายเงิน พร้อมระบบตรวจสอบตำแหน่ง/บริบทโต๊ะเพื่อความปลอดภัย) และ Admin Flow (ระบบหลังบ้านแบบ Role-based จัดการเมนู โต๊ะ คิวครัว และพนักงาน)',
-      'Real-time Operations: เชื่อมต่อระบบหน้าบ้าน, ครัว, และจุดชำระเงินเข้าด้วยกันแบบ Real-time ผ่าน Firestore Listeners ทำให้ออเดอร์และการอัปเดตสถานะทำงานได้ทันที',
-      'Backend & API Architecture: วางโครงสร้าง Backend ด้วย Node.js/Express ร่วมกับ Firebase Functions พร้อมระบบยืนยันตัวตนและจัดการสิทธิ์ด้วย Firebase Auth (Role Claims) และเลือกใช้ Bruno เป็นเครื่องมือในการทดสอบและจัดการ API Endpoints เพื่อความรวดเร็วและเป็นมาตรฐานในการทำงาน',
-      'Hardware Integration (Plug & Play): พัฒนา Local Print Proxy Service ด้วย Node.js เป็น Middleware แปลงข้อมูลจาก Web POS เป็นคำสั่ง ESC/POS สั่งพิมพ์สลิปและเปิดลิ้นชักผ่าน TCP Socket โดยทำการ Build เป็น Standalone Executable (Windows/macOS) ด้วย pkg พร้อมระบบ Interactive CLI และการจดจำ IP อัจฉริยะ',
-      'Data Integrity & Concurrency Control: จัดการปัญหาข้อมูลชนกัน (Race Condition) กรณีลูกค้าและพนักงานใช้งานพร้อมกัน ด้วย Database Transactions และ Locking (Atomic Operations) รวมถึงออกแบบระบบคำนวณแยกชำระเงิน (Split Bill) ที่แม่นยำระดับทศนิยมเพื่อความถูกต้องทางบัญชี'
-    ],
-    documents: [
-      {
-        label: 'ตัวอย่างการใช้งานลูกค้า (Guest Demo)',
-        url: 'https://warungpos-9e429.web.app/guest/?Id=UTT1cWu772MXhrnORl2kWGion8F3&pid=QLduex0smm'
-      }
-    ],
-    liveUrl: 'https://warungpos-9e429.web.app/',
-    coverImage: '/warungpos/warung-4.png',
-    images: ['/warungpos/warung-1.png', '/warungpos/warung-2.png', '/warungpos/warung-3.png', '/warungpos/warung-4.png', '/warungpos/IMG_3825.jpg'],
-    videos: [
-      '/warungpos/3639DC80-987E-4B7A-85D9-7917EB5E6065.mp4',
-      '/warungpos/IMG_3828.mp4'
-    ],
-    tags: ['Next.js', 'TypeScript', 'Node.js', 'Express', 'Firebase'],
-    gradient: 'from-emerald-500 to-cyan-500'
-  },
-  {
-    slug: 'gold-scale-monitoring',
-    title: 'เชื่อมต่อเครื่องชั่งทอง (JE4002G)',
-    description:
-      'เชื่อมต่อเครื่องชั่ง Mettler Toledo (JE4002G) แบบ Web-based ผ่าน Web Serial API สำหรับติดตามน้ำหนักทองแบบเรียลไทม์',
-    details: [
-      'เชื่อมต่อผ่าน Web Serial API เพื่ออ่านข้อมูลจากเครื่องชั่งโดยตรงไม่ต้องผ่านโปรแกรมตัวกลาง',
-      'รองรับโปรโตคอล MT-SICS (Mettler Toledo Standard Interface Command Set) สำหรับการสื่อสารที่แม่นยำ',
-      'แสดงผลน้ำหนักแบบ Real-time พร้อมระบบบันทึกค่าที่เสถียร รองรับการทำงานต่อเนื่อง',
-      'จัดการระบบ Connection และ Reconnection อัตโนมัติเมื่ออุปกรณ์หลุดหรือเชื่อมต่อใหม่',
-      'ออกแบบ UI ให้มีความพรีเมียม สวยงาม และใช้งานง่ายสำหรับผู้ดูแลร้านทอง'
-    ],
-    coverImage: '/gold/DD861832-9AD0-4EFB-B634-39E456BCAE87.JPG',
-    images: [
-      '/gold/DD861832-9AD0-4EFB-B634-39E456BCAE87.JPG'
-    ],
-    tags: ['Next.js', 'TypeScript', 'Web Serial API', 'MT-SICS'],
-    gradient: 'from-yellow-500 to-amber-700'
   }
 ];
