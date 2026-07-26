@@ -18,15 +18,15 @@ export interface ProjectItem {
 export const projects: ProjectItem[] = [
   {
     slug: 'gold-scale-monitoring',
-    title: 'CES - Gold ERP & Precision Scale Monitoring System',
+    title: 'CES - Gold Trading & Precision Scale Monitoring System',
     description:
-      'ร่วมพัฒนาระบบบริหารจัดการธุรกิจค้าทองคำและคลังสินค้า (ERP) ฝั่งหน้าบ้าน (Frontend Dashboard) และจัดการข้อมูลนำเข้า (Data Migration) พร้อมพัฒนาระบบมอนิเตอร์ค่าน้ำหนักจากเครื่องชั่งทองคำอัจฉริยะผ่าน Web Serial API แบบ Real-time',
+      'ร่วมพัฒนาระบบซื้อขายทองคำ ทั้งฝั่งหน้าบ้าน (React 19) และระบบหลังบ้าน (NestJS + PostgreSQL) พร้อมพัฒนาระบบมอนิเตอร์และบันทึกค่าน้ำหนักจากเครื่องชั่งทองคำอัจฉริยะแบบ Real-time และการโยกย้ายฐานข้อมูล (Data Migration)',
     details: [
-      'ร่วมพัฒนาหน้าจอเว็บแอปพลิเคชันระบบบริหารจัดการคลังทองคำ (ERP Dashboard) เพื่อควบคุมระบบงานทองคำเฉพาะทาง เช่น การส่งหลอมทอง (Refining), การจัดการช่างทองและค่ากำเหน็จ (Goldsmith Rate), และการทำรายการชำระเงิน (Settlement)',
-      'Hardware Integration: พัฒนาระบบเชื่อมต่อกับเครื่องชั่งดิจิทัลระดับอุตสาหกรรม (Mettler Toledo) และสายแปลง Serial/USB (FTDI, Prolific, CH340, CP210x) ด้วย Web Serial API บนเบราว์เซอร์โดยตรงโดยไม่ต้องมีโปรแกรมตัวกลาง',
-      'Industrial Protocol Support: เขียนโปรแกรมรับส่งข้อมูลตามโปรโตคอลมาตรฐาน MT-SICS (Mettler Toledo Standard Interface Command Set) รองรับคำสั่งส่งน้ำหนักทันที (S) และการส่งค่าน้ำหนักต่อเนื่องแบบสตรีมมิ่ง (SIR)',
-      'Desktop & CLI Monitoring: พัฒนาสคริปต์ Python CLI ด้วยไลบรารี PySerial สำหรับใช้ทดสอบ เชื่อมต่อ และบันทึกข้อมูลค่าน้ำหนักจากเครื่องชั่งแบบอัตโนมัติ',
-      'Data Migration & Cleansing: พัฒนาชุดสคริปต์ Python (Jupyter Notebook & Pandas) เพื่อล้างข้อมูลและนำเข้าข้อมูลสินค้า (SKUs) และรายชื่อช่างทอง/คู่ค้าจำนวนนับหมื่นแถวจากไฟล์ Excel (Vansales) เข้าฐานข้อมูลของระบบใหม่ พร้อมระบบป้องกันข้อมูลซ้ำซ้อน'
+      'Frontend Development (React 19): ร่วมพัฒนา UI/UX ระบบซื้อขายและส่งคืนทอง (Gold Return) โดยทำระบบซิงค์ข้อมูลน้ำหนักอัตโนมัติ บังคับชั่งน้ำหนักทอง (Weighing Enforcement) และทำระบบป้อนตัวเลขพร้อมตัวคั่นหลักพันรวมถึงการแสดงผลบน PDF',
+      'Backend Services (NestJS & Prisma): ร่วมพัฒนาฟังก์ชันคำนวณและซิงค์ข้อมูลยอดชำระเงินคืนค่ากำเหน็จ (Wage Refund), รายการคืนทองชำรุด (Damaged Stock), และการจัดหมวดหมู่ตัวเลือก SKU อัตโนมัติในระดับฐานข้อมูล',
+      'Day-Close Calculation (ระบบปิดยอด): ร่วมวิเคราะห์และแก้ไขตรรกะทางบัญชีในระบบปิดยอดประจำวันเกี่ยวกับค่าแรงช่างทองที่จ่ายหลังงวด/ข้ามงวด และจัดการความคลาดเคลื่อน (Tolerance) ในการชำระบัญชีบางส่วน (Partial Settlement)',
+      'Hardware IoT Integration: พัฒนาระบบเชื่อมต่อเครื่องชั่งดิจิทัลระดับอุตสาหกรรม (Mettler Toledo) บนหน้าเบราว์เซอร์ด้วย Web Serial API และเขียนสคริปต์ Python CLI (PySerial) ในการสื่อสารผ่านโปรโตคอลมาตรฐาน MT-SICS',
+      'Database Security & Authorization: พัฒนาระบบยืนยันตัวตนระดับผู้จัดการ (Manager Authentication) สำหรับการทำรายการชำระบัญชีข้ามธุรกรรม และป้องกันการยกเลิกรายการชำระบัญชีที่เชื่อมโยงกับธุรกรรมที่มีสถานะ Converted'
     ],
     coverImage: '/gold/DD861832-9AD0-4EFB-B634-39E456BCAE87.JPG',
     images: [
