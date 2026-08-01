@@ -39,7 +39,7 @@ export const projects: ProjectItem[] = [
     slug: 'restaurant-pos-southern-thailand',
     title: 'Restaurant POS System (ภาคใต้)',
     description:
-      'ระบบ POS ร้านอาหารที่พัฒนาครบทั้ง frontend และ backend (พัฒนาเองคนเดียว) รองรับ workflow หน้าร้านจริงตั้งแต่การสั่งอาหาร, จัดคิวครัว, ชำระเงิน, ไปจนถึงหน้าจอผู้ดูแลระบบ',
+      'ระบบ POS ร้านอาหารที่พัฒนาครบทั้ง frontend และ backend (พัฒนาเองคนเดียว) รองรับ workflow หน้าร้านจริงตั้งแต่การสั่งอาหาร, จัดคิวครัว, ชำระเงิน, ไปจนถึงหน้าจอผู้ดูแลระบบ (สำหรับสั่งอาหารทดสอบนอกพื้นที่ร้าน ให้ใช้รหัสพนักงาน: 1001)',
     details: [
       'End-to-End POS Workflow: พัฒนาระบบรองรับการทำงานหน้าร้านจริง ครอบคลุมทั้ง Guest Flow (ลูกค้าสแกนโต๊ะสั่งอาหาร, จัดการตะกร้า, จ่ายเงิน พร้อมระบบตรวจสอบตำแหน่ง/บริบทโต๊ะเพื่อความปลอดภัย) และ Admin Flow (ระบบหลังบ้านแบบ Role-based จัดการเมนู โต๊ะ คิวครัว และพนักงาน)',
       'Real-time Operations: เชื่อมต่อระบบหน้าบ้าน, ครัว, และจุดชำระเงินเข้าด้วยกันแบบ Real-time ผ่าน Firestore Listeners ทำให้ออเดอร์และการอัปเดตสถานะทำงานได้ทันที',
@@ -49,7 +49,7 @@ export const projects: ProjectItem[] = [
     ],
     documents: [
       {
-        label: 'ตัวอย่างการใช้งานลูกค้า (Guest Demo)',
+        label: 'ตัวอย่างการใช้งานลูกค้า (Guest Demo) - รหัสพนักงานสั่งอาหาร: 1001',
         url: 'https://warungpos-9e429.web.app/guest/?Id=UTT1cWu772MXhrnORl2kWGion8F3&pid=QLduex0smm'
       }
     ],
