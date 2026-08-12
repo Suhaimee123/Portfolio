@@ -6,7 +6,6 @@ export default function About() {
   const [systemUptime, setSystemUptime] = useState(34212);
   const [activeLogIndex, setActiveLogIndex] = useState(0);
 
-  // Auto-increment simulated uptime to make the console feel alive!
   useEffect(() => {
     const timer = setInterval(() => {
       setSystemUptime((prev) => prev + 1);
@@ -23,7 +22,6 @@ export default function About() {
     "💡 Next.js 16 Server Components optimized successfully",
   ];
 
-  // Rotate console logs for visual micro-interaction
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveLogIndex((prev) => (prev + 1) % logs.length);
@@ -32,16 +30,16 @@ export default function About() {
   }, [logs.length]);
 
   return (
-    <section id="about" className="py-28 relative border-t border-white/5 overflow-hidden">
+    <section id="about" className="py-24 relative border-t border-white/5 overflow-hidden">
       {/* Background radial highlight */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[120px] pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[450px] h-[450px] bg-[#00a2ff]/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-stretch">
 
-        {/* Left Column: Mission Narrative & Simulated Operational Log */}
+        {/* Left Column: Mission Narrative & Operational Log */}
         <div className="lg:w-5/12 flex flex-col justify-between">
           <div>
-            <span className="text-purple-400 font-mono text-sm tracking-wider uppercase mb-3 block">
+            <span className="text-[#00a2ff] font-mono text-sm tracking-wider uppercase mb-3 block font-bold">
               01 // BIOGRAPHY
             </span>
             <h2 className="text-4xl md:text-5xl font-extrabold mb-8 tracking-tight text-white leading-tight">
@@ -52,25 +50,23 @@ export default function About() {
             </p>
           </div>
 
-          {/* Interactive Simulated Operational Log / Terminal Dashboard */}
-          <div className="rounded-2xl border border-white/10 bg-[#0d0d0d]/80 backdrop-blur-md p-6 font-mono text-xs text-zinc-400 shadow-[0_8px_30px_rgb(0,0,0,0.4)] relative overflow-hidden group">
-            {/* Top Bar simulating a Terminal window */}
+          {/* Terminal Console Log */}
+          <div className="rounded-2xl border border-white/10 bg-[#0c1017]/90 backdrop-blur-md p-6 font-mono text-xs text-zinc-400 shadow-[0_8px_30px_rgb(0,0,0,0.5)] relative overflow-hidden group hover:border-[#00a2ff]/40 transition-colors">
             <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/5">
               <div className="flex gap-1.5">
                 <span className="w-3 h-3 rounded-full bg-rose-500/80" />
                 <span className="w-3 h-3 rounded-full bg-amber-500/80" />
-                <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
+                <span className="w-3 h-3 rounded-full bg-[#00a2ff]" />
               </div>
               <div className="text-zinc-500 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00a2ff] animate-pulse" />
                 <span>jj-runtime.sh</span>
               </div>
             </div>
 
-            {/* Simulated Live Console Log Feed */}
             <div className="space-y-2.5 min-h-[140px] flex flex-col justify-between">
               <div>
-                <p className="text-purple-400 font-semibold mb-1">
+                <p className="text-[#00a2ff] font-semibold mb-1">
                   JJ_SYSTEM_CONSOLE // CORE_ENG_ACTIVE
                 </p>
                 <p className="text-zinc-500">
@@ -78,10 +74,10 @@ export default function About() {
                 </p>
               </div>
 
-              <div className="space-y-1 bg-black/45 p-3.5 rounded-lg border border-white/5 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-emerald-500/5 to-transparent pointer-events-none" />
+              <div className="space-y-1 bg-black/50 p-3.5 rounded-lg border border-white/5 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-[#00a2ff]/10 to-transparent pointer-events-none" />
                 <p className="text-zinc-500 text-[10px] uppercase tracking-widest font-bold">SYSTEM METRIC FEED</p>
-                <p className="text-emerald-400 font-semibold break-all transition-all duration-500 transform translate-x-0">
+                <p className="text-[#38bdf8] font-semibold break-all transition-all duration-500">
                   {logs[activeLogIndex]}
                 </p>
                 <p className="text-zinc-500 text-[10px] italic">
@@ -91,21 +87,21 @@ export default function About() {
 
               <div className="flex items-center gap-1.5 text-zinc-600 mt-2">
                 <span>$</span>
-                <span className="inline-block w-2.5 h-4 bg-zinc-600 animate-[pulse_1s_infinite]" />
+                <span className="inline-block w-2.5 h-4 bg-[#00a2ff] animate-[pulse_1s_infinite]" />
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right Column: Interactive Philosophy Cards */}
+        {/* Right Column: Philosophy Cards */}
         <div className="lg:w-7/12 flex flex-col gap-6 justify-center">
 
-          {/* Card 1: Education & Foundation */}
-          <div className="reveal-card p-8 rounded-2xl bg-gradient-to-br from-zinc-900/50 to-zinc-900/10 border border-white/5 hover:border-white/10 transition-all duration-300 backdrop-blur-md relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-bl-full pointer-events-none transition-all duration-500 group-hover:scale-125" />
+          {/* Card 1 */}
+          <div className="reveal-card p-8 rounded-2xl bg-gradient-to-br from-white/[0.02] to-white/[0.005] border border-white/5 hover:border-[#00a2ff]/40 transition-all duration-300 backdrop-blur-md relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#00a2ff]/5 rounded-bl-full pointer-events-none transition-all duration-500 group-hover:scale-125" />
             <div className="flex gap-6 items-start">
-              <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center border border-purple-500/20 shrink-0 group-hover:bg-purple-500/20 transition-all duration-300">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-purple-400 group-hover:text-purple-300 transition-colors">
+              <div className="w-12 h-12 rounded-xl bg-[#00a2ff]/10 flex items-center justify-center border border-[#00a2ff]/30 shrink-0 group-hover:bg-[#00a2ff]/20 transition-all duration-300">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[#00a2ff]">
                   <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
                   <path d="M6 12v5c3 3 9 3 12 0v-5" />
                 </svg>
@@ -116,7 +112,7 @@ export default function About() {
                   <p className="text-zinc-100 font-semibold text-base">สถาบันการจัดการปัญญาภิวัฒน์</p>
                   <p className="text-zinc-400 text-sm">คณะวิศวกรรมศาสตร์และเทคโนโลยี • สาขาสารสนเทศและเทคโนโลยีดิจิทัล</p>
                   <div className="flex items-center gap-3 mt-3">
-                    <span className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
+                    <span className="px-3 py-1 rounded-full bg-[#00a2ff]/10 border border-[#00a2ff]/30 text-[#00a2ff] text-xs font-semibold">
                       พ.ศ. 2564 - 2568
                     </span>
                     <span className="text-zinc-500 text-xs font-mono">GPAX: IT SPECIALIST TRACK</span>
@@ -126,12 +122,12 @@ export default function About() {
             </div>
           </div>
 
-          {/* Card 2: Core Philosophy */}
-          <div className="reveal-card p-8 rounded-2xl bg-gradient-to-br from-zinc-900/50 to-zinc-900/10 border border-white/5 hover:border-white/10 transition-all duration-300 backdrop-blur-md relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-bl-full pointer-events-none transition-all duration-500 group-hover:scale-125" />
+          {/* Card 2 */}
+          <div className="reveal-card p-8 rounded-2xl bg-gradient-to-br from-white/[0.02] to-white/[0.005] border border-white/5 hover:border-[#00a2ff]/40 transition-all duration-300 backdrop-blur-md relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#38bdf8]/5 rounded-bl-full pointer-events-none transition-all duration-500 group-hover:scale-125" />
             <div className="flex gap-6 items-start">
-              <div className="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center border border-cyan-500/20 shrink-0 group-hover:bg-cyan-500/20 transition-all duration-300">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-cyan-400 group-hover:text-cyan-300 transition-colors">
+              <div className="w-12 h-12 rounded-xl bg-[#38bdf8]/10 flex items-center justify-center border border-[#38bdf8]/30 shrink-0 group-hover:bg-[#38bdf8]/20 transition-all duration-300">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[#38bdf8]">
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                 </svg>
               </div>
@@ -144,12 +140,12 @@ export default function About() {
             </div>
           </div>
 
-          {/* Card 3: Enterprise Performance & Scale */}
-          <div className="reveal-card p-8 rounded-2xl bg-gradient-to-br from-zinc-900/50 to-zinc-900/10 border border-white/5 hover:border-white/10 transition-all duration-300 backdrop-blur-md relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-bl-full pointer-events-none transition-all duration-500 group-hover:scale-125" />
+          {/* Card 3 */}
+          <div className="reveal-card p-8 rounded-2xl bg-gradient-to-br from-white/[0.02] to-white/[0.005] border border-white/5 hover:border-[#00a2ff]/40 transition-all duration-300 backdrop-blur-md relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#00a2ff]/5 rounded-bl-full pointer-events-none transition-all duration-500 group-hover:scale-125" />
             <div className="flex gap-6 items-start">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20 shrink-0 group-hover:bg-emerald-500/20 transition-all duration-300">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-emerald-400 group-hover:text-emerald-300 transition-colors">
+              <div className="w-12 h-12 rounded-xl bg-[#00a2ff]/10 flex items-center justify-center border border-[#00a2ff]/30 shrink-0 group-hover:bg-[#00a2ff]/20 transition-all duration-300">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-[#00a2ff]">
                   <line x1="18" y1="20" x2="18" y2="10" />
                   <line x1="12" y1="20" x2="12" y2="4" />
                   <line x1="6" y1="20" x2="6" y2="14" />

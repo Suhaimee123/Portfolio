@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 
 interface SkillCategory {
   title: string;
-  glowColor: string; // Tailwind glow class (e.g. shadow-cyan-500/20)
-  borderColor: string; // border class on hover
+  glowColor: string;
+  borderColor: string;
   iconColor: string;
   skills: string[];
 }
@@ -13,30 +13,30 @@ interface SkillCategory {
 const skillCategories: SkillCategory[] = [
   {
     title: 'Frontend (Visual Engine)',
-    glowColor: 'hover:shadow-[0_0_20px_rgba(6,182,212,0.25)] hover:border-cyan-500/30',
-    borderColor: 'group-hover:border-cyan-500/20',
-    iconColor: 'text-cyan-400',
+    glowColor: 'hover:shadow-[0_0_25px_rgba(0,162,255,0.25)] hover:border-[#00a2ff]/40',
+    borderColor: 'group-hover:border-[#00a2ff]/30',
+    iconColor: 'text-[#00a2ff]',
     skills: ['JavaScript', 'TypeScript', 'Next.js', 'React', 'Vue.js', 'TailwindCSS', 'SPA']
   },
   {
     title: 'Backend & API (Logic Core)',
-    glowColor: 'hover:shadow-[0_0_20px_rgba(168,85,247,0.25)] hover:border-purple-500/30',
-    borderColor: 'group-hover:border-purple-500/20',
-    iconColor: 'text-purple-400',
+    glowColor: 'hover:shadow-[0_0_25px_rgba(56,189,248,0.25)] hover:border-[#38bdf8]/40',
+    borderColor: 'group-hover:border-[#38bdf8]/30',
+    iconColor: 'text-[#38bdf8]',
     skills: ['Node.js', 'NestJS', 'RESTful API', 'WebSocket', 'Server-Sent Events (SSE)']
   },
   {
     title: 'Cloud & DevOps (Infrastructure)',
-    glowColor: 'hover:shadow-[0_0_20px_rgba(16,185,129,0.25)] hover:border-emerald-500/30',
-    borderColor: 'group-hover:border-emerald-500/20',
-    iconColor: 'text-emerald-400',
+    glowColor: 'hover:shadow-[0_0_25px_rgba(0,162,255,0.25)] hover:border-[#00a2ff]/40',
+    borderColor: 'group-hover:border-[#00a2ff]/30',
+    iconColor: 'text-[#00a2ff]',
     skills: ['Google Cloud Run', 'DigitalOcean', 'AWS', 'Vercel', 'Docker', 'GitHub Actions (CI/CD)']
   },
   {
     title: 'Database & Testing (Stability)',
-    glowColor: 'hover:shadow-[0_0_20px_rgba(245,158,11,0.25)] hover:border-amber-500/30',
-    borderColor: 'group-hover:border-amber-500/20',
-    iconColor: 'text-amber-400',
+    glowColor: 'hover:shadow-[0_0_25px_rgba(56,189,248,0.25)] hover:border-[#38bdf8]/40',
+    borderColor: 'group-hover:border-[#38bdf8]/30',
+    iconColor: 'text-[#38bdf8]',
     skills: ['PostgreSQL', 'MySQL', 'Firebase', 'Performance & Load Testing']
   }
 ];
@@ -81,15 +81,15 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-28 relative border-t border-white/5 overflow-hidden">
+    <section id="skills" className="py-24 relative border-t border-white/5 overflow-hidden">
       {/* Background radial highlight */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[150px] pointer-events-none -z-10" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#00a2ff]/5 rounded-full blur-[150px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <div className="mb-16 text-center">
-          <span className="text-purple-400 font-mono text-sm tracking-wider uppercase mb-3 block">
-            03 // CAPABILITIES
+          <span className="text-[#00a2ff] font-mono text-sm tracking-wider uppercase mb-3 block font-bold">
+            03 // TECHNICAL STACK
           </span>
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
             ทักษะความสามารถทางเทคนิค
@@ -104,9 +104,9 @@ export default function Skills() {
           {skillCategories.map((category, idx) => (
             <div
               key={idx}
-              className={`p-8 rounded-3xl bg-[#0c0c0c]/60 border border-white/5 backdrop-blur-md relative overflow-hidden group transition-all duration-300 ${category.glowColor}`}
+              className={`p-8 rounded-3xl bg-[#0c1017]/80 border border-white/10 backdrop-blur-md relative overflow-hidden group transition-all duration-300 ${category.glowColor}`}
             >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-white/[0.02] to-transparent rounded-bl-full pointer-events-none" />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#00a2ff]/10 to-transparent rounded-bl-full pointer-events-none" />
 
               <div className="flex gap-4 items-center mb-6">
                 <span className={`w-2.5 h-2.5 rounded-full bg-current ${category.iconColor}`} />
@@ -125,9 +125,10 @@ export default function Skills() {
                       onMouseLeave={handleMouseLeave}
                       className={`px-4 py-2 rounded-xl text-sm font-medium border transition-all duration-200 cursor-default ${
                         isHovered
-                          ? 'bg-white/10 text-white border-white/20 scale-105 shadow-sm'
-                          : 'bg-white/5 border-white/5 text-zinc-400 hover:text-zinc-200 hover:bg-white/5'
+                          ? 'bg-[#00a2ff]/20 text-white border-[#00a2ff] scale-105 shadow-sm'
+                          : 'bg-white/5 border-white/5 text-zinc-400 hover:text-zinc-200 hover:bg-white/10'
                       }`}
+                      data-cursor="TECH"
                     >
                       {skill}
                     </span>
@@ -138,21 +139,19 @@ export default function Skills() {
           ))}
         </div>
 
-        {/* Tech Operational Console at the Bottom */}
-        <div className="rounded-2xl border border-white/10 bg-[#070707]/90 backdrop-blur-md p-6 font-mono text-xs shadow-[0_8px_32px_rgba(0,0,0,0.5)] overflow-hidden relative group">
-          {/* Console Header */}
+        {/* Operational Console */}
+        <div className="rounded-2xl border border-white/10 bg-[#0c1017]/90 backdrop-blur-md p-6 font-mono text-xs shadow-[0_8px_32px_rgba(0,0,0,0.5)] overflow-hidden relative group hover:border-[#00a2ff]/30 transition-colors">
           <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/5">
             <div className="flex gap-1.5">
               <span className="w-2.5 h-2.5 rounded-full bg-rose-500/70" />
               <span className="w-2.5 h-2.5 rounded-full bg-amber-500/70" />
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#00a2ff]" />
             </div>
-            <div className="text-zinc-500 text-[10px] tracking-wider uppercase">
+            <div className="text-zinc-500 text-[10px] tracking-wider uppercase font-bold">
               TECH_CONSOLE_OUTPUT // {hoveredSkill ? hoveredSkill.toUpperCase() : 'STANDBY'}
             </div>
           </div>
 
-          {/* Console Body with Typing Simulation */}
           <div className="min-h-[70px] flex items-center justify-between">
             <div className="space-y-1.5 flex-1">
               {hoveredSkill ? (
@@ -170,8 +169,7 @@ export default function Skills() {
                 </p>
               )}
             </div>
-            {/* Pulsing prompt caret */}
-            <span className="ml-4 inline-block w-2.5 h-4 bg-zinc-600 animate-[pulse_1s_infinite] shrink-0" />
+            <span className="ml-4 inline-block w-2.5 h-4 bg-[#00a2ff] animate-[pulse_1s_infinite] shrink-0" />
           </div>
         </div>
 
