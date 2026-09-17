@@ -39,13 +39,18 @@ export const projects: ProjectItem[] = [
     slug: 'restaurant-pos-southern-thailand',
     title: 'Restaurant POS System (ภาคใต้)',
     description:
-      'ระบบ POS ร้านอาหารที่พัฒนาครบทั้ง frontend และ backend (พัฒนาเองคนเดียว) รองรับ workflow หน้าร้านจริงตั้งแต่การสั่งอาหาร, จัดคิวครัว, ชำระเงิน, ไปจนถึงหน้าจอผู้ดูแลระบบ (สำหรับสั่งอาหารทดสอบนอกพื้นที่ร้าน ให้ใช้รหัสพนักงาน: 1001)',
+      'ระบบ POS ร้านอาหารที่พัฒนาครบทั้ง frontend และ backend (พัฒนาเองคนเดียวตลอดโครงการ) ตั้งแต่ระบบสมาชิกและสิทธิ์ผู้ใช้งาน จัดการเมนู/ครัว/โต๊ะ/QR ไปจนถึงระบบชำระเงินครบวงจร รองรับการทำงานหลายสาขา ระบบสมาชิกร้าน ลิ้นชักเงิน/กะแคชเชียร์ และแดชบอร์ดรายงานสำหรับผู้บริหาร (สำหรับสั่งอาหารทดสอบนอกพื้นที่ร้าน ให้ใช้รหัสพนักงาน: 1001)',
     details: [
-      'End-to-End POS Workflow: พัฒนาระบบรองรับการทำงานหน้าร้านจริง ครอบคลุมทั้ง Guest Flow (ลูกค้าสแกนโต๊ะสั่งอาหาร, จัดการตะกร้า, จ่ายเงิน พร้อมระบบตรวจสอบตำแหน่ง/บริบทโต๊ะเพื่อความปลอดภัย) และ Admin Flow (ระบบหลังบ้านแบบ Role-based จัดการเมนู โต๊ะ คิวครัว และพนักงาน)',
-      'Real-time Operations: เชื่อมต่อระบบหน้าบ้าน, ครัว, และจุดชำระเงินเข้าด้วยกันแบบ Real-time ผ่าน Firestore Listeners ทำให้ออเดอร์และการอัปเดตสถานะทำงานได้ทันที',
-      'Backend & API Architecture: วางโครงสร้าง Backend ด้วย Node.js/Express ร่วมกับ Firebase Functions พร้อมระบบยืนยันตัวตนและจัดการสิทธิ์ด้วย Firebase Auth (Role Claims) และเลือกใช้ Bruno เป็นเครื่องมือในการทดสอบและจัดการ API Endpoints เพื่อความรวดเร็วและเป็นมาตรฐานในการทำงาน',
-      'Hardware Integration (Plug & Play): พัฒนา Local Print Proxy Service ด้วย Node.js เป็น Middleware แปลงข้อมูลจาก Web POS เป็นคำสั่ง ESC/POS สั่งพิมพ์สลิปและเปิดลิ้นชักผ่าน TCP Socket โดยทำการ Build เป็น Standalone Executable (Windows/macOS) ด้วย pkg พร้อมระบบ Interactive CLI และการจดจำ IP อัจฉริยะ',
-      'Data Integrity & Concurrency Control: จัดการปัญหาข้อมูลชนกัน (Race Condition) กรณีลูกค้าและพนักงานใช้งานพร้อมกัน ด้วย Database Transactions และ Locking (Atomic Operations) รวมถึงออกแบบระบบคำนวณแยกชำระเงิน (Split Bill) ที่แม่นยำระดับทศนิยมเพื่อความถูกต้องทางบัญชี'
+      'Account, Role & Multi-Branch Access: พัฒนาระบบสมัครสมาชิก เข้าสู่ระบบ จัดการ token/session และกำหนดสิทธิ์เข้าถึงตามบทบาท (เจ้าของร้าน/ผู้ดูแล/พนักงาน/ครัว/เสิร์ฟ/แคชเชียร์) รองรับการทำงานหลายสาขาในระบบเดียว พร้อมระบบผู้ดูแลส่วนกลางสำหรับจัดการข้อมูลร้านและแพ็กเกจการใช้งาน',
+      'End-to-End POS Workflow: ครอบคลุมทั้ง Guest Flow (ลูกค้าสแกนโต๊ะสั่งอาหาร จัดการตะกร้า จ่ายเงิน พร้อมตรวจสอบตำแหน่ง/บริบทโต๊ะเพื่อความปลอดภัย) และ Admin Flow (จัดการเมนู หมวดหมู่ ราคา ตัวเลือกเสริม โต๊ะ/ผังร้าน สร้างและดาวน์โหลด QR Code)',
+      'Real-time Kitchen & Service Operations: เชื่อมหน้าบ้าน ครัว และจุดชำระเงินเข้าด้วยกันแบบ Real-time ผ่าน Firestore Listeners (ยกระดับจาก SSE เดิม) แยกออเดอร์ตามจุดครัว พร้อมเสียงแจ้งเตือน และระบบเรียกพนักงาน/แจ้งขอจ่ายเงินสดจากหน้าติดตามโต๊ะ',
+      'Payment System ครบวงจร: รองรับเงินสด พร้อมเพย์ และ QR ธนาคาร พร้อมอัปโหลด/ตรวจสลิปด้วย OCR รองรับแบ่งจ่ายหลายรอบ เลือกจ่ายบางรายการ หารจ่าย (Split Bill) คำนวณละเอียดระดับทศนิยม และป้องกันการประมวลผลชำระเงินซ้อนกันด้วย Database Transactions/Locking',
+      'Cash Drawer, Cashier Shift & Membership: เพิ่มระบบจัดการลิ้นชักเงินและกะแคชเชียร์พร้อมตรวจ PIN พนักงานก่อนทำรายการ รวมถึงระบบสมาชิกร้าน ลงทะเบียน สร้างรหัสสมาชิก ยืนยัน PIN และเชื่อมสมาชิกกับออเดอร์',
+      'Dashboard & Reporting: สรุปยอดขาย เงินรับแยกช่องทาง ออเดอร์ ลูกค้า ต้นทุนและกำไร งานสรุปรายวัน/รายสัปดาห์อัตโนมัติ ส่งออก Excel/PDF พร้อมระบบย้ายข้อมูลจาก Firestore ไป BigQuery สำหรับวิเคราะห์เชิงลึก',
+      'Hardware Integration (Plug & Play): พัฒนา Local Print Proxy Service ด้วย Node.js แปลงคำสั่งจาก Web POS เป็น ESC/POS สั่งพิมพ์สลิป 80 มม. และเปิดลิ้นชักผ่าน TCP Socket, build เป็น Standalone Executable ด้วย pkg พร้อมเพิ่มแนวทางพิมพ์/เปิดลิ้นชักผ่านเบราว์เซอร์บน Android',
+      'Backend & API Architecture: วางโครงสร้าง Backend ด้วย Node.js/Express ร่วมกับ Firebase Functions ยืนยันตัวตนด้วย Firebase Auth (Role Claims) เปลี่ยนเอกสาร API จาก Swagger/OpenAPI มาใช้ Bruno และอัปเกรด Node.js/CI-CD สำหรับ dev/production',
+      'UI/UX & Localization: รองรับภาษาไทย อังกฤษ และมลายู ธีมสว่าง/มืด ปรับ UI ให้ใช้งานบนมือถือได้ลื่นไหล พร้อมแปลงภาพเป็น WebP เพื่อลดเวลาโหลด',
+      'Bill Comp / Owner Discretion: เพิ่มฟีเจอร์ owner_comp สำหรับบิลอภินันทนาการของเจ้าของร้าน แยกมูลค่าออกจากยอดเงินรับจริงในหน้าชำระเงิน ประวัติ และรายงาน'
     ],
     documents: [
       {
@@ -60,7 +65,7 @@ export const projects: ProjectItem[] = [
       '/warungpos/3639DC80-987E-4B7A-85D9-7917EB5E6065.mp4',
       '/warungpos/IMG_3828.mp4'
     ],
-    tags: ['Next.js', 'TypeScript', 'Node.js', 'Express', 'Firebase'],
+    tags: ['Next.js', 'TypeScript', 'Node.js', 'Express', 'Firebase', 'Firestore', 'BigQuery'],
     gradient: 'from-emerald-500 to-cyan-500'
   },
   {
