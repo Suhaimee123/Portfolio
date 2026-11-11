@@ -161,6 +161,38 @@
   transform: translateY(-2px);
 }
 
+/* Swarm Rebuild Engine States */
+html.swarm-active {
+  scroll-behavior: auto !important;
+}
+
+html.swarm-active [data-custom-cursor='true'] {
+  opacity: 0 !important;
+}
+
+html.swarm-active .motion-section {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+[data-swarm-state='hidden'] {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+[data-swarm-state='building-text'] {
+  opacity: 1 !important;
+  clip-path: inset(0 var(--swarm-clip-x, 100%) var(--swarm-clip-y, 0%) 0);
+  transition: none !important;
+}
+
+[data-swarm-state='revealed'] {
+  opacity: 1 !important;
+  clip-path: none !important;
+  transition: opacity 240ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

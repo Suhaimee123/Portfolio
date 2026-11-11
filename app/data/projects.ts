@@ -72,22 +72,40 @@ export const projects: ProjectItem[] = [
     slug: 'village-hub-ppld',
     title: 'Village Hub PPLD',
     description:
-      'ระบบจัดการข้อมูลภายในหมู่บ้านแบบครบวงจร รองรับการจัดการข้อมูลลูกบ้านและบ้าน พร้อมพิกัดแผนที่ และกิจกรรมคูปองลุ้นโชคด้วย QR Code สำหรับชุมชน',
+      'ระบบจัดการข้อมูลหมู่บ้านอัจฉริยะและแพลตฟอร์มเฝ้าระวัง/เตือนภัยน้ำท่วมระดับชุมชน (Next.js 16 + Firebase + Leaflet) ครอบคลุมทั้งการจัดการข้อมูลบ้านและลูกบ้านแบบกำหนดสิทธิ์ (RBAC), ระบบคูปอง QR Code พร้อม Live Lucky Draw และระบบพยากรณ์/ติดตามน้ำท่วมจากข้อมูลดาวเทียม เรดาร์ และสถานีวัดน้ำแบบเรียลไทม์',
     details: [
-      'พัฒนาระบบจัดการข้อมูลหมู่บ้านสำหรับผู้ดูแลและผู้ใช้งานทั่วไป พร้อมการกำหนดสิทธิ์การเข้าถึงตามบทบาท',
-      'รองรับการจัดการข้อมูลลูกบ้าน/บ้าน พร้อมพิกัดแผนที่ด้วย Google Maps และแสดงข้อมูลแบบใช้งานจริงในระดับชุมชน',
-      'พัฒนาระบบคูปองกิจกรรมพร้อมการสแกน QR Code เพื่อรองรับกิจกรรมตลาดชุมชน'
+      'Real-time Flood Monitoring & Early Warning (/flood & /flood-alert): พัฒนาทั้งหน้าวิเคราะห์สำหรับผู้ดูแลและหน้าเตือนภัยสำหรับลูกบ้าน (เปิดดูได้โดยไม่ต้องล็อกอิน) แสดงสถานะเตือนภัย 4 ระดับที่ปรับเกณฑ์จากเหตุการณ์น้ำท่วมจริง พ.ย. 2567 และ พ.ย. 2568 พร้อมรายชื่อบ้านเลขที่เสี่ยงสูง/ปานกลาง',
+      'Multi-Source Hydrological & Satellite Data Integration: เชื่อมต่อ API น้ำและฝนหลายแหล่งพร้อม Cache และ Cron เก็บสถิติรายวันอัตโนมัติ (GitHub Actions + Firestore) ได้แก่ ระดับน้ำ/ฝน/เขื่อนบางลางจาก ThaiWater, พยากรณ์ฝน 15 นาที (6 ชม.) และ 51 ฉากทัศน์ 14 วันจาก Open-Meteo (ECMWF IFS & GloFAS), พื้นที่น้ำท่วม 7 วันและน้ำท่วมซ้ำซาก 13 ปีจาก GISTDA, เรดาร์ Sentinel-1 และฝนดาวเทียม NASA GPM IMERG / NASA POWER',
+      'Interactive GIS & Leaflet Mapping: ย้ายระบบแผนที่จาก Google Maps มาใช้ Leaflet (react-leaflet) รองรับสลับชั้นข้อมูลแผนที่ถนน ภูมิประเทศ ภาพถ่ายดาวเทียม GISTDA Sphere/Esri, ระดับความสูงพื้นดิน (AWS Terrain Tiles), ความชื้นในดิน และปักหมุดพิกัดบ้านแต่ละหลัง',
+      'Resident Flood Reporting: ระบบให้ลูกบ้านส่งรายงานสถานการณ์น้ำท่วมในพื้นที่จริงพร้อมแนบภาพถ่ายและระดับน้ำ เพื่อนำไปแสดงผลร่วมบนแผนที่ผู้ดูแลแบบเรียลไทม์',
+      'Households, Villagers & Role-Based Access Control (RBAC): จัดการข้อมูลบ้าน/ลูกบ้าน (CRUD) พร้อมนำเข้าข้อมูลหมู่บ้านจำนวนมาก (/houses/import), ควบคุมสิทธิ์ด้วย Firebase Auth, Next.js Middleware และ Firestore Rules รวมถึงระบบเก็บสถิติผู้เข้าชมรายหน้า (/settings/visitors)',
+      'QR Code Coupon & Live Lucky Draw: สร้างคูปองกิจกรรมเป็น QR Code ส่งออก PDF (jsPDF + html2canvas), สแกนตรวจสอบและแลกคูปองด้วยกล้อง (html5-qrcode) พร้อมระบบจับรางวัล Live Lucky Draw ที่ซิงค์สถานะแบบเรียลไทม์'
     ],
     liveUrl: 'https://village-hub-ppld.web.app/',
-    coverImage: '/village/home.png',
-    images: ['/village/home.png', '/village/houses.png', '/village/houses_map.png', '/village/conpons.png', '/village/conpons_pdf.png'],
+    coverImage: '/village/flood-dashboard.png',
+    images: [
+      '/village/flood-dashboard.png',
+      '/village/flood-map.png',
+      '/village/flood-dam.png',
+      '/village/flood-alert.png',
+      '/village/lucky-draw.png',
+      '/village/home.png',
+      '/village/houses.png',
+      '/village/houses_map.png',
+      '/village/conpons.png',
+      '/village/conpons_pdf.png'
+    ],
     documents: [
+      {
+        label: 'หน้าเตือนภัยน้ำท่วมสำหรับลูกบ้าน (เปิดดูได้ไม่ต้องล็อกอิน)',
+        url: 'https://village-hub-ppld.web.app/flood-alert'
+      },
       {
         label: 'ไฟล์คูปองกิจกรรม (PDF)',
         url: '/village/coupons.pdf'
       }
     ],
-    tags: ['Next.js', 'TypeScript', 'Firebase', 'Google Maps', 'QR Coupon'],
+    tags: ['Next.js 16', 'TypeScript', 'Firebase', 'Leaflet GIS', 'ThaiWater & GISTDA API', 'NASA / Sentinel-1', 'QR & Lucky Draw'],
     gradient: 'from-blue-500 to-emerald-500'
   },
   {

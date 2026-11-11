@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 interface MenuOverlayProps {
   isOpen: boolean;
@@ -8,12 +9,12 @@ interface MenuOverlayProps {
 }
 
 const menuItems = [
-  { number: '01', label: 'หน้าแรก // HOME', href: '#' },
-  { number: '02', label: 'เกี่ยวกับผม // ABOUT', href: '#about' },
-  { number: '03', label: 'ประสบการณ์ // EXPERIENCE', href: '#experience' },
-  { number: '04', label: 'ทักษะ & เทคโนโลยี // SKILLS', href: '#skills' },
-  { number: '05', label: 'ผลงานเด่น // PROJECTS', href: '#projects' },
-  { number: '06', label: 'ติดต่อผม // CONTACT', href: '#contact' },
+  { number: '01', label: 'หน้าแรก // HOME', href: '/' },
+  { number: '02', label: 'เกี่ยวกับผม // ABOUT', href: '/#about' },
+  { number: '03', label: 'ประสบการณ์ // EXPERIENCE', href: '/#experience' },
+  { number: '04', label: 'ทักษะ & เทคโนโลยี // SKILLS', href: '/#skills' },
+  { number: '05', label: 'ผลงานเด่น // PROJECTS', href: '/projects' },
+  { number: '06', label: 'ติดต่อผม // CONTACT', href: '/#contact' },
 ];
 
 export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
@@ -43,7 +44,7 @@ export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
       {/* Main Nav Links */}
       <div className="my-auto py-8 max-w-4xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
         {menuItems.map((item, idx) => (
-          <a
+          <Link
             key={idx}
             href={item.href}
             onClick={onClose}
@@ -56,7 +57,7 @@ export default function MenuOverlay({ isOpen, onClose }: MenuOverlayProps) {
             <span className="text-2xl md:text-4xl font-extrabold text-white group-hover:text-[#38bdf8] transition-colors tracking-tight">
               {item.label}
             </span>
-          </a>
+          </Link>
         ))}
       </div>
 

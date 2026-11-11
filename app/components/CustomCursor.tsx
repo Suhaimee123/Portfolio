@@ -48,6 +48,7 @@ export default function CustomCursor() {
 
   return (
     <div
+      data-custom-cursor="true"
       className={`fixed pointer-events-none z-[9999] transition-transform duration-100 ease-out flex items-center justify-center rounded-full ${
         isHovered
           ? 'w-16 h-16 bg-[#00a2ff]/20 border border-[#00a2ff] backdrop-blur-xs shadow-[0_0_20px_rgba(0,162,255,0.6)] scale-110'
